@@ -147,12 +147,6 @@ struct StepElement_Previews: PreviewProvider {
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
         let state = StepsState(steps: steps)
-        return (
-            Button(action: {
-
-            }, label: { () -> PrimitiveButtonStyleConfiguration.Label in
-                Text("sss")
-            })
-        )
+        return StepElement(step: Step(), index: 0, state: state)
     }
 }

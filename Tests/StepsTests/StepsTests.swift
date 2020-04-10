@@ -6,7 +6,7 @@ final class StepsTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        //XCTAssertEqual(Steps().text, "Hello, World!")
+        XCTAssertEqual(Steps().text, "Hello, World!")
     }
 
     static var allTests = [

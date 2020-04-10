@@ -1,19 +1,7 @@
 import SwiftUI
 import Combine
 
-struct Step: Identifiable {
-    var id = UUID()
-    var title: String?
-    var image: Image?
-}
-
-enum StepState: Int, CaseIterable {
-    case uncompleted
-    case current
-    case completed
-}
-
-class StepsConfiguration: ObservableObject {
+public class StepsConfiguration: ObservableObject {
     var spacing: CGFloat = 5
     var size: CGFloat = 14
     var lineThickness: CGFloat = 2
@@ -31,11 +19,11 @@ class StepsConfiguration: ObservableObject {
     #endif
 }
 
-class StepsState: ObservableObject {
+public class StepsState: ObservableObject {
     let steps: [Step]
     @Published private(set) var currentIndex: Int = 0
 
-    init(steps: [Step]) {
+    public init(steps: [Step]) {
         self.steps = steps
     }
 
@@ -54,7 +42,7 @@ class StepsState: ObservableObject {
     }
 }
 
-struct Steps: View {
+public struct Steps: View {
 
     var config: StepsConfiguration = StepsConfiguration()
     @ObservedObject var state: StepsState
@@ -95,7 +83,7 @@ struct Steps: View {
         return StepSeparator(step: step, state: statee, index: index)
     }
 
-    var body: some View {
+    public var body: some View {
         VStack {
             HStack(alignment: .top, spacing: config.spacing) {
                 ForEach(state.steps.indices) { index in
