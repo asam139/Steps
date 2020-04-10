@@ -13,12 +13,19 @@ struct ContentView: View {
     @ObservedObject private var stepsState: StepsState
 
     init() {
-        let steps = [Step(), Step(), Step(), Step(), Step(), Step(), Step()]
+        let steps = [Step(), Step(), Step(), Step(), Step()]
         stepsState = StepsState(steps: steps)
     }
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Steps(state: stepsState).padding()
+            Button(action: {
+                self.stepsState.nextStep()
+            }) {
+                Text("\(stepsState.currentIndex)")
+            }
+        }.padding()
     }
 }
 

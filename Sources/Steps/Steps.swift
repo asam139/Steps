@@ -20,21 +20,21 @@ public class StepsConfiguration: ObservableObject {
 }
 
 public class StepsState: ObservableObject {
-    let steps: [Step]
-    @Published private(set) var currentIndex: Int = 0
+    public let steps: [Step]
+    @Published public private(set) var currentIndex: Int = 0
 
     public init(steps: [Step]) {
         self.steps = steps
     }
 
-    func nextStep() {
+    public func nextStep() {
         if (currentIndex > steps.count - 1) {
             return
         }
         currentIndex += 1
     }
 
-    func previousStep() {
+    public func previousStep() {
         if (currentIndex == 0) {
             return
         }
@@ -46,6 +46,10 @@ public struct Steps: View {
 
     var config: StepsConfiguration = StepsConfiguration()
     @ObservedObject var state: StepsState
+
+    public init(state: StepsState) {
+        self.state = state
+    }
 
     private var figurePadding: CGFloat {
         return config.size * 0.5
