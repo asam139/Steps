@@ -25,6 +25,11 @@ public class StepsConfig: ObservableObject {
     public var image: Image?
     #endif
 
+    let animationDuration: TimeInterval = 0.55
+    var animation: Animation {
+        return Animation.spring(response: animationDuration, dampingFraction: 0.45, blendDuration: 0)
+    }
+
     public init() {
 
     }

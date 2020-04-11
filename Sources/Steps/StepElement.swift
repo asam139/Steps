@@ -66,11 +66,6 @@ struct StepElement: View {
         }
     }
 
-    private let animationDuration: TimeInterval = 0.55
-    private var animation: Animation {
-        return Animation.spring(response: animationDuration, dampingFraction: 0.45, blendDuration: 0)
-    }
-
     var body: some View {
         StepContainer(size: config.size, title: step.title) {
             ifLet(image, then: {
@@ -88,15 +83,14 @@ struct StepElement: View {
                     )
                 })
                 .cornerRadius(config.size)
-                .animation(animation)
         }
         .foregroundColor(foregroundColor)
         .modifier(OffsetEffect(offset: offset, pct: abs(offset) > 0 ? 1 : 0))
-        .animation(animation)
+        .animation(config.animation)
         .onReceive(state.$currentIndex, perform: { (nextIndex) in
             self.updateOffset(nextIndex: nextIndex)
             let previousOffset = self.offset
-            DispatchQueue.main.asyncAfter(deadline: .now() + self.animationDuration) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.config.animationDuration) {
                 if (self.offset != 0 && previousOffset == self.offset) {
                     self.offset = 0
                 }
