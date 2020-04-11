@@ -25,6 +25,11 @@ struct ContentView: View {
             }) {
                 Text("\(stepsState.currentIndex)")
             }
+            Button(action: {
+                self.stepsState.previousStep()
+            }) {
+                Text("\(stepsState.currentIndex)")
+            }
         }.padding()
     }
 }

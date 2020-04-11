@@ -12,37 +12,35 @@ import SwifterSwiftUI
 struct StepElement: View {
     @EnvironmentObject var config: StepsConfig
 
-    var step: Step
     var index: Int
     @ObservedObject var state: StepsState
 
     @State private var previousIndex: Int = 0
     @State private var offset: CGFloat = 0
 
-    var stepState: StepState {
-        if (index < state.currentIndex) {
-            return .completed
-        } else if index == state.currentIndex {
-            return .current
-        }
-        return .uncompleted
+    private var stepState: StepState {
+        return state.stepStateAt(index: index)
     }
 
-    private var figurePadding: CGFloat {
-        return config.size * 0.5
+    private var step: Step {
+        return state.stepAtIndex(index: index)
     }
 
     private var image: Image? {
         return stepState != .completed ? step.image : config.image
     }
 
-    private func getColor() -> Color {
+    private var foregroundColor: Color {
         switch stepState {
         case .uncompleted:
             return config.disabledColor
         default:
             return config.primaryColor
         }
+    }
+
+    private var figurePadding: CGFloat {
+        return config.size * 0.5
     }
 
     private var maxOffset: CGFloat {
@@ -93,7 +91,7 @@ struct StepElement: View {
                 .cornerRadius(config.size)
                 .animation(animation)
             }
-            .foregroundColor(getColor())
+            .foregroundColor(foregroundColor)
             .modifier(StepOffsetEffect(offset: offset, pct: abs(offset) > 0 ? 1 : 0))
             .animation(animation)
             .onReceive(state.$currentIndex, perform: { (nextIndex) in
@@ -147,6 +145,6 @@ struct StepElement_Previews: PreviewProvider {
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
         let state = StepsState(steps: steps)
-        return StepElement(step: Step(), index: 0, state: state)
+        return StepElement(index: 0, state: state)
     }
 }
