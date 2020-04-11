@@ -66,44 +66,43 @@ struct StepElement: View {
         }
     }
 
-    var body: some View {
-        let duration = 0.55
-        let animation = Animation
-            .spring(response: duration, dampingFraction: 0.45, blendDuration: 0)
+    private let animationDuration: TimeInterval = 0.55
+    private var animation: Animation {
+        return Animation.spring(response: animationDuration, dampingFraction: 0.45, blendDuration: 0)
+    }
 
-        return (
-            StepContainer(size: config.size, title: step.title) {
-                ifLet(image, then: {
-                    $0.resizable()
-                }, else: {
-                    Text("\(index + 1)")
-                })
-                    .frame(width: config.size, height: config.size)
-                    .padding(figurePadding)
-                    .if(index == state.currentIndex, then: {
-                        $0.background(config.primaryColor).foregroundColor(config.secondaryColor)
-                    }, else: {
-                        $0.overlay(
-                            Circle().stroke(lineWidth: config.lineThickness)
-                        )
-                    })
-                    .cornerRadius(config.size)
-                    .animation(animation)
-            }
-            .foregroundColor(foregroundColor)
-            .modifier(OffsetEffect(offset: offset, pct: abs(offset) > 0 ? 1 : 0))
-            .animation(animation)
-            .onReceive(state.$currentIndex, perform: { (nextIndex) in
-                self.updateOffset(nextIndex: nextIndex)
-                let previousOffset = self.offset
-                DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
-                    if (self.offset != 0 && previousOffset == self.offset) {
-                        self.offset = 0
-                    }
-                }
-                self.previousIndex = nextIndex
+    var body: some View {
+        StepContainer(size: config.size, title: step.title) {
+            ifLet(image, then: {
+                $0.resizable()
+            }, else: {
+                Text("\(index + 1)").font(.system(size: config.size))
             })
-        )
+                .frame(width: config.size, height: config.size)
+                .padding(figurePadding)
+                .if(index == state.currentIndex, then: {
+                    $0.background(config.primaryColor).foregroundColor(config.secondaryColor)
+                }, else: {
+                    $0.overlay(
+                        Circle().stroke(lineWidth: config.lineThickness)
+                    )
+                })
+                .cornerRadius(config.size)
+                .animation(animation)
+        }
+        .foregroundColor(foregroundColor)
+        .modifier(OffsetEffect(offset: offset, pct: abs(offset) > 0 ? 1 : 0))
+        .animation(animation)
+        .onReceive(state.$currentIndex, perform: { (nextIndex) in
+            self.updateOffset(nextIndex: nextIndex)
+            let previousOffset = self.offset
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.animationDuration) {
+                if (self.offset != 0 && previousOffset == self.offset) {
+                    self.offset = 0
+                }
+            }
+            self.previousIndex = nextIndex
+        })
     }
 }
 

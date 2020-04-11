@@ -49,30 +49,29 @@ struct StepSeparator: View {
         }
     }
 
-    var body: some View {
-        let duration = 0.55
-        let animation = Animation
-            .spring(response: duration, dampingFraction: 0.45, blendDuration: 0)
+    private let animationDuration: TimeInterval = 0.55
+    private var animation: Animation {
+        return Animation.spring(response: animationDuration, dampingFraction: 0.45, blendDuration: 0)
+    }
 
-        return (
-            StepContainer(size: config.size) {
-                Rectangle()
-                    .frame(height: config.lineThickness)
-                    .scaleEffect(x: scaleX, y: 1, anchor: .center)
-                    .animation(animation)
-                    .onReceive(state.$currentIndex, perform: { (nextIndex) in
-                        self.updateScale(nextIndex: nextIndex)
-                        let previousScaleX = self.scaleX
-                        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
-                            if (self.scaleX != 1 && previousScaleX == self.scaleX) {
-                                self.scaleX = 1
-                            }
-                        }
-                        self.previousIndex = nextIndex
-                    })
+    var body: some View {
+        StepContainer(size: config.size) {
+            Rectangle()
+                .frame(height: config.lineThickness)
+                .scaleEffect(x: scaleX, y: 1, anchor: .center)
+        }
+        .foregroundColor(foregroundColor)
+        .animation(animation)
+        .onReceive(state.$currentIndex, perform: { (nextIndex) in
+            self.updateScale(nextIndex: nextIndex)
+            let previousScaleX = self.scaleX
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.animationDuration) {
+                if (self.scaleX != 1 && previousScaleX == self.scaleX) {
+                    self.scaleX = 1
+                }
             }
-            .foregroundColor(foregroundColor)
-        )
+            self.previousIndex = nextIndex
+        })
     }
 }
 
