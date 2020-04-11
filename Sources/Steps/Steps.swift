@@ -19,13 +19,11 @@ public struct Steps: View {
     }
 
     public var body: some View {
-        VStack {
-            HStack(alignment: .top, spacing: config.spacing) {
-                ForEach(state.steps.indices) { index in
-                    self.makeStepAt(index: index)
-                    if (index < self.state.steps.endIndex - 1) {
-                        self.makeSeparatorAt(index: index)
-                    }
+        HStack(alignment: .top, spacing: config.spacing) {
+            ForEach(state.steps.indices) { index in
+                self.makeStepAt(index: index)
+                if (index < self.state.steps.endIndex - 1) {
+                    self.makeSeparatorAt(index: index)
                 }
             }
         }.environmentObject(config)
