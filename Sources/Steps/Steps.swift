@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-public class StepsConfiguration: ObservableObject {
+public class StepsConfig: ObservableObject {
     var spacing: CGFloat = 5
     var size: CGFloat = 14
     var lineThickness: CGFloat = 2
@@ -19,32 +19,9 @@ public class StepsConfiguration: ObservableObject {
     #endif
 }
 
-public class StepsState: ObservableObject {
-    public let steps: [Step]
-    @Published public private(set) var currentIndex: Int = 0
-
-    public init(steps: [Step]) {
-        self.steps = steps
-    }
-
-    public func nextStep() {
-        if (currentIndex > steps.count - 1) {
-            return
-        }
-        currentIndex += 1
-    }
-
-    public func previousStep() {
-        if (currentIndex == 0) {
-            return
-        }
-        currentIndex -= 1
-    }
-}
-
 public struct Steps: View {
 
-    var config: StepsConfiguration = StepsConfiguration()
+    var config: StepsConfig = StepsConfig()
     @ObservedObject var state: StepsState
 
     public init(state: StepsState) {
@@ -64,16 +41,6 @@ public struct Steps: View {
         return .uncompleted
     }
 
-    func getColorFor(state: StepState) -> Color {
-        switch state {
-        case .uncompleted,
-             .current:
-            return config.disabledColor
-        default:
-            return config.primaryColor
-        }
-    }
-
     private func makeStepAt(index: Int) -> some View {
         let step = state.steps[index]
         return StepElement(step: step,
@@ -82,9 +49,8 @@ public struct Steps: View {
     }
 
     private func makeSeparatorAt(index: Int) -> some View {
-        let statee = getStateByStepAt(index: index)
         let step = state.steps[index]
-        return StepSeparator(step: step, state: statee, index: index)
+        return StepSeparator(step: step, index: index, state: state)
     }
 
     public var body: some View {

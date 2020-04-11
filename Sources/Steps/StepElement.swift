@@ -10,7 +10,7 @@ import SwiftUI
 import SwifterSwiftUI
 
 struct StepElement: View {
-    @EnvironmentObject var config: StepsConfiguration
+    @EnvironmentObject var config: StepsConfig
 
     var step: Step
     var index: Int

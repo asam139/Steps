@@ -10,18 +10,18 @@ import SwiftUI
 import SwifterSwiftUI
 
 struct StepSeparator: View {
-    @EnvironmentObject var config: StepsConfiguration
+    @EnvironmentObject var config: StepsConfig
 
     var step: Step
-    var state: StepState
     var index: Int
+    @ObservedObject var state: StepsState
 
     private var figurePadding: CGFloat {
         return config.size * 0.5
     }
 
-    func getColorFor(state: StepState) -> Color {
-        switch state {
+    var foregroundColor: Color {
+        switch state.stepStateAt(index: index) {
         case .uncompleted,
              .current:
             return config.disabledColor
@@ -35,12 +35,14 @@ struct StepSeparator: View {
             Rectangle()
                 .frame(height: config.lineThickness)
         }
-        .foregroundColor(getColorFor(state: state))
+        .foregroundColor(foregroundColor)
     }
 }
 
 struct StepSeparator_Previews: PreviewProvider {
     static var previews: some View {
-        StepSeparator(step: Step(), state: .uncompleted, index: 0)
+        let steps = [Step(title: "First"), Step(), Step()]
+        let state = StepsState(steps: steps)
+        return StepSeparator(step: Step(), index: 0, state: state)
     }
 }
