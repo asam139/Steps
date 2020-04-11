@@ -2,16 +2,12 @@ import SwiftUI
 import Combine
 
 public struct Steps: View {
+    @ObservedObject public private(set) var state: StepsState
+    public private(set) var config: StepsConfig
 
-    var config: StepsConfig = StepsConfig()
-    @ObservedObject var state: StepsState
-
-    public init(state: StepsState) {
+    public init(state: StepsState, config: StepsConfig = StepsConfig()) {
         self.state = state
-    }
-
-    private var figurePadding: CGFloat {
-        return config.size * 0.5
+        self.config = config
     }
 
     private func makeStepAt(index: Int) -> some View {

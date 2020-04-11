@@ -11,15 +11,17 @@ import Steps
 
 struct ContentView: View {
     @ObservedObject private var stepsState: StepsState
+    private var config: StepsConfig
 
     init() {
         let steps = [Step(), Step(), Step(), Step(), Step()]
         stepsState = StepsState(steps: steps)
+        config = StepsConfig()
     }
 
     var body: some View {
         VStack {
-            Steps(state: stepsState).padding()
+            Steps(state: stepsState, config: config).padding()
             Button(action: {
                 self.stepsState.nextStep()
             }) {

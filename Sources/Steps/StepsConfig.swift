@@ -24,4 +24,8 @@ public class StepsConfig: ObservableObject {
     #if os(macOS)
     public var image: Image?
     #endif
+
+    public init() {
+
+    }
 }
