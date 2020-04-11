@@ -14,7 +14,13 @@ struct ContentView: View {
     private var config: StepsConfig
 
     init() {
-        let steps = [Step(), Step(), Step(), Step(), Step()]
+        let steps = [
+            Step(title: "First", image: Image("wind")),
+            Step(),
+            Step(title: "Third", image: Image("tornado")),
+            Step(),
+            Step(title: "Fifth", image: Image("hurricane"))
+        ]
         stepsState = StepsState(steps: steps)
         config = StepsConfig()
     }
