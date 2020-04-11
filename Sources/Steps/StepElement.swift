@@ -51,6 +51,7 @@ struct StepElement: View {
         let diff = nextIndex - previousIndex
         if abs(diff) != 1 {
             offset = 0
+            return
         }
 
         if (previousIndex == index) {
@@ -61,7 +62,11 @@ struct StepElement: View {
             }
 
         } else if(nextIndex == index) {
-            offset = -CGFloat(diff) * maxOffset
+            if (nextIndex == state.steps.count - 1 && diff < 0) {
+                offset = 0
+            } else {
+                offset = -CGFloat(diff) * maxOffset
+            }
         } else {
             offset = 0
         }
