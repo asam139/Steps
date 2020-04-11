@@ -367,7 +367,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which mint >/dev/null; then\n  mint run realm/SwiftLint@0.39.0\nelse\n  echo \"warning: Mint not installed, download from https://github.com/yonaskolb/mint\"\nfi\n";
+			shellScript = "if which mint >/dev/null; then\n  mint run realm/SwiftLint@0.39.0 swiftlint autocorrect --format\nelse\n  echo \"warning: Mint not installed, download from https://github.com/yonaskolb/mint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -463,6 +463,7 @@
 					"SWIFT_PACKAGE=1",
 					"DEBUG=1",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
@@ -488,6 +489,7 @@
 					"$(inherited)",
 					"SWIFT_PACKAGE=1",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";

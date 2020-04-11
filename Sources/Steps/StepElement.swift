@@ -79,17 +79,17 @@ struct StepElement: View {
                 }, else: {
                     Text("\(index + 1)")
                 })
-                .frame(width: config.size, height: config.size)
-                .padding(figurePadding)
-                .if(index == state.currentIndex, then: {
-                    $0.background(config.primaryColor).foregroundColor(config.secondaryColor)
-                }, else: {
-                    $0.overlay(
-                        Circle().stroke(lineWidth: config.lineThickness)
-                    )
-                })
-                .cornerRadius(config.size)
-                .animation(animation)
+                    .frame(width: config.size, height: config.size)
+                    .padding(figurePadding)
+                    .if(index == state.currentIndex, then: {
+                        $0.background(config.primaryColor).foregroundColor(config.secondaryColor)
+                    }, else: {
+                        $0.overlay(
+                            Circle().stroke(lineWidth: config.lineThickness)
+                        )
+                    })
+                    .cornerRadius(config.size)
+                    .animation(animation)
             }
             .foregroundColor(foregroundColor)
             .modifier(StepOffsetEffect(offset: offset, pct: abs(offset) > 0 ? 1 : 0))
