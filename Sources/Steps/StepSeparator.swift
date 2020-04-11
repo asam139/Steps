@@ -42,6 +42,6 @@ struct StepSeparator_Previews: PreviewProvider {
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
         let state = StepsState(steps: steps)
-        return StepSeparator(index: 0, state: state)
+        return StepSeparator(index: 0, state: state).environmentObject(StepsConfig())
     }
 }

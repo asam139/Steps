@@ -1,0 +1,52 @@
+disabled_rules: # rule identifiers to exclude from running
+  - colon
+  - comma
+  - control_statement
+  - force_cast # by Viperit
+  - multiple_closures_with_trailing_closure # by SwiftUI
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  # Find all the available rules by running:
+  # swiftlint rules
+included: # paths to include during linting. `--path` is ignored if present.
+  - ./Sources
+  - ./Tests
+  - ./Example
+analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+  - explicit_self
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_try:
+  severity: warning # explicitly
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+line_length:
+  warning: 120
+  ignores_comments: true
+  ignores_urls: true
+file_length:
+  - 1000 # warning
+  - 1500 # error
+type_body_length:
+  - 500 # warning
+  - 600 # error
+function_body_length:
+  warning: 200
+  error: 300
+type_name:
+  min_length: 3 # only warning
+  max_length: # warning and error
+    warning: 40
+    error: 50
+  excluded:
+    - K
+identifier_name:
+  min_length: # only min_length
+    warning: 1
+    error: 1 # only error
+  excluded: # excluded via string array
+    - i
+    - id
+    - URL
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)

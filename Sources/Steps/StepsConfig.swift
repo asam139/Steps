@@ -22,6 +22,6 @@ public class StepsConfig: ObservableObject {
     #endif
 
     #if os(macOS)
-    public var image: Image? = nil
+    public var image: Image?
     #endif
 }
