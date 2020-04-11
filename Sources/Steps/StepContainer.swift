@@ -31,6 +31,7 @@ struct StepContainer<Content> : View where Content : View {
             }
             .frame(height: size + 2 * figurePadding)
             ifLet(title, then: { Text($0) })
+                .lineLimit(1)
         }
     }
 }

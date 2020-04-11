@@ -15,11 +15,11 @@ struct ContentView: View {
 
     init() {
         let steps = [
-            Step(title: "First", image: Image("wind")),
+            Step(title: "First", image: Image(systemName: "wind")),
             Step(),
-            Step(title: "Third", image: Image("tornado")),
+            Step(title: "Third", image: Image(systemName: "tornado")),
             Step(),
-            Step(title: "Fifth", image: Image("hurricane"))
+            Step(title: "Fifth", image: Image(systemName: "hurricane"))
         ]
         stepsState = StepsState(steps: steps)
         config = StepsConfig()
@@ -27,7 +27,9 @@ struct ContentView: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            Steps(state: stepsState, config: config).padding()
+            Steps(state: stepsState, config: config)
+                .font(.caption)
+                .padding()
             Button(action: {
                 self.stepsState.nextStep()
             }) {
