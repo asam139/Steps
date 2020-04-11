@@ -15,6 +15,9 @@ struct StepSeparator: View {
     var index: Int
     @ObservedObject var state: StepsState
 
+    @State private var previousIndex: Int = 0
+    @State private var scaleX: CGFloat = 1
+
     private var stepState: Step.State {
         return state.stepStateFor(index: index)
     }
@@ -29,12 +32,46 @@ struct StepSeparator: View {
         }
     }
 
-    var body: some View {
-        StepContainer(size: config.size) {
-            Rectangle()
-                .frame(height: config.lineThickness)
+    private func updateScale(nextIndex: Int) {
+        let diff = nextIndex - previousIndex
+        if abs(diff) != 1 {
+            scaleX = 1
+            return
         }
-        .foregroundColor(foregroundColor)
+
+        if (previousIndex == index && diff > 0) {
+            scaleX = 0
+        } else if (nextIndex == index && diff < 0) {
+            scaleX = 0
+        } else {
+            scaleX = 1
+        }
+    }
+
+    var body: some View {
+        let duration = 0.55
+        let animation = Animation
+            .spring(response: duration, dampingFraction: 0.45, blendDuration: 0)
+
+        return (
+            StepContainer(size: config.size) {
+                Rectangle()
+                    .frame(height: config.lineThickness)
+                    .scaleEffect(x: scaleX, y: 1, anchor: .center)
+                    .animation(animation)
+                    .onReceive(state.$currentIndex, perform: { (nextIndex) in
+                        let previousScaleX = self.scaleX
+                        self.updateScale(nextIndex: nextIndex)
+                        if (self.scaleX != 1 && previousScaleX != self.scaleX) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+                                self.scaleX = 1
+                            }
+                        }
+                        self.previousIndex = nextIndex
+                    })
+            }
+            .foregroundColor(foregroundColor)
+        )
     }
 }
 
