@@ -54,19 +54,13 @@ struct StepElement: View {
             return
         }
 
-        if (previousIndex == index) {
-            if (previousIndex == state.steps.count - 1 && diff > 0) {
-                offset = 0
-            } else {
-                offset = CGFloat(diff) * maxOffset
-            }
-
+        if ((previousIndex == state.steps.count - 1 && diff > 0) ||
+            (nextIndex == state.steps.count - 1 && diff < 0)) {
+            offset = 0
+        } else if (previousIndex == index) {
+            offset = CGFloat(diff) * maxOffset
         } else if(nextIndex == index) {
-            if (nextIndex == state.steps.count - 1 && diff < 0) {
-                offset = 0
-            } else {
-                offset = -CGFloat(diff) * maxOffset
-            }
+            offset = -CGFloat(diff) * maxOffset
         } else {
             offset = 0
         }
@@ -100,10 +94,10 @@ struct StepElement: View {
             .modifier(StepOffsetEffect(offset: offset, pct: abs(offset) > 0 ? 1 : 0))
             .animation(animation)
             .onReceive(state.$currentIndex, perform: { (nextIndex) in
-                let previousOffset = self.offset
                 self.updateOffset(nextIndex: nextIndex)
-                if (self.offset != 0 && previousOffset != self.offset) {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+                let previousOffset = self.offset
+                DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+                    if (self.offset != 0 && previousOffset == self.offset) {
                         self.offset = 0
                     }
                 }

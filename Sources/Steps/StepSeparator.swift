@@ -60,10 +60,10 @@ struct StepSeparator: View {
                     .scaleEffect(x: scaleX, y: 1, anchor: .center)
                     .animation(animation)
                     .onReceive(state.$currentIndex, perform: { (nextIndex) in
-                        let previousScaleX = self.scaleX
                         self.updateScale(nextIndex: nextIndex)
-                        if (self.scaleX != 1 && previousScaleX != self.scaleX) {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+                        let previousScaleX = self.scaleX
+                        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+                            if (self.scaleX != 1 && previousScaleX == self.scaleX) {
                                 self.scaleX = 1
                             }
                         }
