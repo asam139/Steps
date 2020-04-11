@@ -8,6 +8,12 @@
 import SwiftUI
 
 public struct Step: Identifiable {
+    enum State: Int, CaseIterable {
+        case uncompleted
+        case current
+        case completed
+    }
+
     public var id = UUID()
     public var title: String?
     public var image: Image?

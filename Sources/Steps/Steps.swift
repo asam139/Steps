@@ -13,16 +13,7 @@ public struct Steps: View {
     private var figurePadding: CGFloat {
         return config.size * 0.5
     }
-
-    func getStateByStepAt(index: Int) -> StepState {
-        if (index < state.currentIndex) {
-            return .completed
-        } else if index == state.currentIndex {
-            return .current
-        }
-        return .uncompleted
-    }
-
+    
     private func makeStepAt(index: Int) -> some View {
         return StepElement(index: index, state: state)
     }

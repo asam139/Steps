@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  StepsConfig.swift
 //  
 //
 //  Created by Saul Moreno Abril on 11/04/2020.

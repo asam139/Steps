@@ -29,7 +29,7 @@ public class StepsState: ObservableObject {
         currentIndex -= 1
     }
 
-    func stepStateAt(index: Int) -> StepState {
+    func stepStateFor(index: Int) -> Step.State {
         if (index < currentIndex) {
             return .completed
         } else if index == currentIndex {

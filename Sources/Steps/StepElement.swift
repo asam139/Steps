@@ -18,8 +18,8 @@ struct StepElement: View {
     @State private var previousIndex: Int = 0
     @State private var offset: CGFloat = 0
 
-    private var stepState: StepState {
-        return state.stepStateAt(index: index)
+    private var stepState: Step.State {
+        return state.stepStateFor(index: index)
     }
 
     private var step: Step {

@@ -15,8 +15,8 @@ struct StepSeparator: View {
     var index: Int
     @ObservedObject var state: StepsState
 
-    private var stepState: StepState {
-        return state.stepStateAt(index: index)
+    private var stepState: Step.State {
+        return state.stepStateFor(index: index)
     }
 
     private var foregroundColor: Color {
