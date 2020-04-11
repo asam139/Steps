@@ -20,18 +20,20 @@ struct ContentView: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(spacing: 12) {
             Steps(state: stepsState, config: config).padding()
             Button(action: {
                 self.stepsState.nextStep()
             }) {
-                Text("\(stepsState.currentIndex)")
+                Text("Next")
             }
+            .disabled(!stepsState.hasNext)
             Button(action: {
                 self.stepsState.previousStep()
             }) {
-                Text("\(stepsState.currentIndex)")
+                Text("Previous")
             }
+            .disabled(!stepsState.hasPrevious)
         }.padding()
     }
 }

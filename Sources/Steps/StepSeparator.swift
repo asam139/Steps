@@ -17,6 +17,7 @@ struct StepSeparator: View {
 
     @State private var previousIndex: Int = 0
     @State private var scaleX: CGFloat = 1
+    private let minScaleX: CGFloat = 0.25
 
     private var stepState: Step.State {
         return state.stepStateFor(index: index)
@@ -40,9 +41,9 @@ struct StepSeparator: View {
         }
 
         if (previousIndex == index && diff > 0) {
-            scaleX = 0
+            scaleX = minScaleX
         } else if (nextIndex == index && diff < 0) {
-            scaleX = 0
+            scaleX = minScaleX
         } else {
             scaleX = 1
         }

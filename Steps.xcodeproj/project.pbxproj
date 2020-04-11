@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		9C7062D324423EEA0061E8D8 /* OffsetEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7062D224423EEA0061E8D8 /* OffsetEffect.swift */; };
 		OBJ_44 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Step.swift */; };
 		OBJ_45 /* StepContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* StepContainer.swift */; };
 		OBJ_46 /* StepElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* StepElement.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C7062D224423EEA0061E8D8 /* OffsetEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetEffect.swift; sourceTree = "<group>"; };
 		OBJ_10 /* StepContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepContainer.swift; sourceTree = "<group>"; };
 		OBJ_11 /* StepElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepElement.swift; sourceTree = "<group>"; };
 		OBJ_12 /* StepSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepSeparator.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				OBJ_13 /* Steps.swift */,
 				OBJ_14 /* StepsConfig.swift */,
 				OBJ_15 /* StepsState.swift */,
+				9C7062D224423EEA0061E8D8 /* OffsetEffect.swift */,
 			);
 			name = Steps;
 			path = Sources/Steps;
@@ -377,6 +380,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_44 /* Step.swift in Sources */,
+				9C7062D324423EEA0061E8D8 /* OffsetEffect.swift in Sources */,
 				OBJ_45 /* StepContainer.swift in Sources */,
 				OBJ_46 /* StepElement.swift in Sources */,
 				OBJ_47 /* StepSeparator.swift in Sources */,

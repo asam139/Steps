@@ -23,7 +23,7 @@ public struct Steps: View {
             HStack(alignment: .top, spacing: config.spacing) {
                 ForEach(state.steps.indices) { index in
                     self.makeStepAt(index: index)
-                    if (index < self.state.steps.count - 1) {
+                    if (index < self.state.steps.endIndex - 1) {
                         self.makeSeparatorAt(index: index)
                     }
                 }

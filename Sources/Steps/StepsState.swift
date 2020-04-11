@@ -10,20 +10,29 @@ import Combine
 public class StepsState: ObservableObject {
     public let steps: [Step]
     @Published public private(set) var currentIndex: Int = 0
+    @Published public private(set) var hasNext: Bool = true
+    @Published public private(set) var hasPrevious: Bool = true
+
+    private var cancellable: AnyCancellable?
 
     public init(steps: [Step]) {
         self.steps = steps
+
+        cancellable = $currentIndex.sink { (index) in
+            self.hasNext = index < self.steps.endIndex
+            self.hasPrevious = index > self.steps.startIndex
+        }
     }
 
     public func nextStep() {
-        if (currentIndex > steps.count - 1) {
+        if (currentIndex > steps.endIndex) {
             return
         }
         currentIndex += 1
     }
 
     public func previousStep() {
-        if (currentIndex == 0) {
+        if (currentIndex == steps.startIndex) {
             return
         }
         currentIndex -= 1

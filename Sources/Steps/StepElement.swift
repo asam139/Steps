@@ -54,8 +54,8 @@ struct StepElement: View {
             return
         }
 
-        if ((previousIndex == state.steps.count - 1 && diff > 0) ||
-            (nextIndex == state.steps.count - 1 && diff < 0)) {
+        if ((previousIndex == state.steps.endIndex && diff > 0) ||
+            (nextIndex == state.steps.endIndex && diff < 0)) {
             offset = 0
         } else if (previousIndex == index) {
             offset = CGFloat(diff) * maxOffset
@@ -91,7 +91,7 @@ struct StepElement: View {
                     .animation(animation)
             }
             .foregroundColor(foregroundColor)
-            .modifier(StepOffsetEffect(offset: offset, pct: abs(offset) > 0 ? 1 : 0))
+            .modifier(OffsetEffect(offset: offset, pct: abs(offset) > 0 ? 1 : 0))
             .animation(animation)
             .onReceive(state.$currentIndex, perform: { (nextIndex) in
                 self.updateOffset(nextIndex: nextIndex)
@@ -104,38 +104,6 @@ struct StepElement: View {
                 self.previousIndex = nextIndex
             })
         )
-    }
-}
-
-struct StepOffsetEffect: GeometryEffect {
-    var offset: CGFloat
-    var pct: CGFloat
-    var offsetDiff: CGFloat = 0
-
-    var animatableData: AnimatablePair<CGFloat, CGFloat> {
-        get { return AnimatablePair<CGFloat, CGFloat>(offset, pct) }
-        set {
-            offsetDiff = (offset - newValue.first)
-
-            offset = newValue.first
-            pct = newValue.second
-        }
-    }
-
-    func effectValue(size: CGSize) -> ProjectionTransform {
-        var skew: CGFloat
-        let direction: CGFloat = offsetDiff > 0 ? -1 : 1
-        let factor: CGFloat = 0.25
-        if pct < 0.2 {
-            skew = (pct * 5)
-        } else if pct > 0.8 {
-            skew = ((1 - pct) * 5)
-        } else {
-            skew = 1
-        }
-        skew *= direction * factor
-
-        return ProjectionTransform(CGAffineTransform(a: 1, b: 0, c: skew, d: 1, tx: offset, ty: 0))
     }
 }
 
