@@ -1,61 +1,82 @@
-# ALMOST DONE :walking_woman: :running_woman: :biking_woman:
+<p align="left">
+  <img src="https://cdn.rawgit.com/asam139/Steps/master/Assets/logo.svg" title="steps">
+</p>
 
-Thank you for using Swift 5 Module Template. Before you release your awesome project to the world, complete the following steps.
+[![Build Status](https://github.com/asam139/Steps/workflows/Steps/badge.svg?branch=master)](https://github.com/asam139/Steps/actions)
+[![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20Linux-lightgrey.svg)](https://github.com/SwifterSwift/swifterSwift)
+[![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
+[![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager/)
+[![codecov](https://codecov.io/gh/asam139/Steps/branch/master/graph/badge.svg)](https://codecov.io/gh/asam139/Steps)
+[![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-11.4-blue.svg)](https://developer.apple.com/xcode)
+[![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
-THIS LIST IS EASY, CHECK IT OFF ONE-BY-ONE BABY! ✔️ ✔️ ✔️
+Steps is a navigation bar that guides users through the steps of a task. You need to use it when a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
 
- - [ ] Open the project in Xcode and add features to Steps
- - [ ] Make sure you are using Swift 5 (Edit > Convert > To Current Swift Syntax…)
- - [ ] Fix all build errors and warnings, add tests (yes really)
- - [ ] Add a screenshot or AT LEAST some picture below in this README
- - [ ] Delete all this crap up here
- - [ ] Make one release (full steps are in [CONTRIBUTING.md] in case you forget)
-
-THEN YOU'RE DONE, GO STAR [swift5-module-template](https://github.com/fulldecent/swift5-module-template) FOR UPDATES.
-
-----
-
-# Steps
-
-[![CI Status](http://img.shields.io/travis/asam139/Steps.svg?style=flat)](https://travis-ci.org/asam139/Steps)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/asam139/Steps)
-[![License](https://img.shields.io/github/license/asam139/Steps)](LICENSE)
-
-<a href="https://placehold.it/400?text=Screen+shot"><img width=200 height=200 src="https://placehold.it/400?text=Screen+shot" alt="Screenshot" /></a>
-
-
-## Example
-
-To run the example project, clone this repo, and open iOS Example.xcworkspace from the iOS Example directory.
-
+### [Whats New in v5.2?](https://github.com/asam139/Steps/blob/master/CHANGELOG.md#v520)
 
 ## Requirements
 
+- **iOS** 10.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+ / **Ubuntu** 14.04+
+- Swift 5.0+
 
 ## Installation
 
-Add this to your project using Swift Package Manager. In Xcode that is simply: File > Swift Packages > Add Package Dependency... and you're done. Alternative installations options are shown below for legacy projects.
+<details>
+<summary>CocoaPods</summary>
+</br>
+<p>To integrate Steps into your Xcode project using <a href="http://cocoapods.org">CocoaPods</a>, specify it in your <code>Podfile</code>:</p>
 
-### CocoaPods
+<pre><code class="ruby language-ruby">pod 'Steps'</code></pre>
 
-If you are already using [CocoaPods](http://cocoapods.org), just add 'Steps' to your `Podfile` then run `pod install`.
+<details>
+<summary>Swift Package Manager</summary>
+</br>
+<p>You can use <a href="https://swift.org/package-manager">The Swift Package Manager</a> to install <code>Steps</code> by adding the proper description to your <code>Package.swift</code> file:</p>
 
-### Carthage
+<pre><code class="swift language-swift">import PackageDescription
 
-If you are already using [Carthage](https://github.com/Carthage/Carthage), just add to your `Cartfile`:
+let package = Package(
+    name: "YOUR_PROJECT_NAME",
+    targets: [],
+    dependencies: [
+        .package(url: "https://github.com/asam139/Steps.git", from: "1.0.0")
+    ]
+)
+</code></pre>
 
-```ogdl
-github "asam139/Steps" ~> 0.1
-```
+<p>Next, add <code>Steps</code> to your targets dependencies like so:</p>
+<pre><code class="swift language-swift">.target(
+    name: "YOUR_TARGET_NAME",
+    dependencies: [
+        "Steps",
+    ]
+),</code></pre>
+<p>Then run <code>swift package update</code>.</p>
+</details>
 
-Then run `carthage update` to build the framework and drag the built `Steps`.framework into your Xcode project.
 
 
-## Author
+<details>
+<summary>Manually</summary>
+</br>
+<p>Add the Steps project to your Xcode project</p>
+</details>
 
-Saul Moreno Abril
+## Example
 
+
+## Get involved
+
+We want your feedback.
+Please refer to [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md) before participating.
+
+## Thanks
+
+Special thanks to:
+
+- Hoping new contributors
 
 ## License
 
-Steps is available under the MIT license. See [the LICENSE file](LICENSE) for more information.
+Steps is released under the MIT license. See [LICENSE](https://github.com/asam139/Steps/blob/master/LICENSE) for more information.
