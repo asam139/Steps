@@ -47,9 +47,3 @@ jobs:
           DEVELOPER_DIR: ${{ matrix.xcode }}
           SCHEME: Steps-Package
           DESTINATION: platform=tvOS Simulator,name=Apple TV 4K (at 1080p)
-    - name: Build WatchOS
-      run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
-      env:
-          DEVELOPER_DIR: ${{ matrix.xcode }}
-          SCHEME: Steps-Package
-          DESTINATION: name=Apple Watch Series 5 - 40mm
