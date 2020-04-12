@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/asam139/Steps/master/Assets/logo.png" title="steps" style="height: 300px">
+  <img src="https://raw.githubusercontent.com/asam139/Steps/master/Assets/logo.png" title="steps" width="300">
 </p>
 
 [![Build Status](https://github.com/asam139/Steps/workflows/Steps/badge.svg?branch=master)](https://github.com/asam139/Steps/actions)
