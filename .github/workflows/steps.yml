@@ -17,6 +17,8 @@ jobs:
       PROJECT: Steps.xcodeproj
     steps:
     - uses: actions/checkout@v2
+    - name: Swift Build
+      run: swift build
     - name: Bundle Install
       run: bundle install
     - name: Brew Upgrade
