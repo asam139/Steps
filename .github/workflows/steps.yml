@@ -8,12 +8,42 @@ on:
 
 jobs:
   build:
-
+    name: Tests
     runs-on: macos-latest
-
+    strategy:
+      matrix:
+        xcode: ['/Applications/Xcode_11.3.app/Contents/Developer']
+    env:
+      PROJECT: Steps.xcodeproj
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Test iOS
+      run: |
+        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
+        bash <(curl -s https://codecov.io/bash) -cF ios -J 'Steps'
+      env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+          SCHEME: Steps-Package
+          DESTINATION: platform=iOS Simulator,name=iPhone 11
+    - name: Test macOS
+      run: |
+        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-macos.json" xcpretty -f `xcpretty-json-formatter`
+        bash <(curl -s https://codecov.io/bash) -cF macos -J 'Steps'
+      env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+          SCHEME: Steps-Package
+          DESTINATION: platform=OS X
+    - name: Test TVOS
+      run: |
+        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-tvos.json" xcpretty -f `xcpretty-json-formatter`
+        bash <(curl -s https://codecov.io/bash) -cF tvos -J 'Steps'
+      env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+          SCHEME: Steps-Package
+          DESTINATION: platform=tvOS Simulator,name=Apple TV 4K (at 1080p)
+    - name: Build WatchOS
+      run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
+      env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+          SCHEME: Steps-Package
+          DESTINATION: name=Apple Watch Series 5 - 40mm
