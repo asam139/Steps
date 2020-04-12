@@ -13,8 +13,6 @@
 
 Steps is a navigation bar that guides users through the steps of a task. You need to use it when a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
 
-### [Whats New in v5.2?](https://github.com/asam139/Steps/blob/master/CHANGELOG.md#v520)
-
 ## Requirements
 
 - **iOS** 10.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+ / **Ubuntu** 14.04+
