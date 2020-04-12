@@ -13,12 +13,12 @@ Steps is a navigation bar that guides users through the steps of a task. You nee
 
   s.ios.deployment_target = '13.0'
   s.osx.deployment_target = '10.15'
-  s.tvos.deployment_target = '12.0'
+  s.tvos.deployment_target = '13.0'
 
   s.swift_version = '5.1'
   s.source = { :git => 'https://github.com/asam139/Steps.git', :tag => s.version.to_s }
   s.source_files = 'Sources/Steps/**/*'
   
   s.frameworks = 'SwiftUI', 'Combine'
-  s.dependency 'SwifterSwiftUI'
+  s.dependency 'SwifterSwiftUI', '~> 0.2.0'
 end

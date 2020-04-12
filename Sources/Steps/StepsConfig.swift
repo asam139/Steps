@@ -17,11 +17,9 @@ public class StepsConfig: ObservableObject {
     public var secondaryColor: Color = Color.white
     public var disabledColor: Color = Color.gray
 
-    #if os(iOS)
+    #if os(iOS) || os(watchOS) || os(tvOS)
     public var image: Image? = Image(systemName: "checkmark")
-    #endif
-
-    #if os(macOS)
+    #elseif os(OSX)
     public var image: Image?
     #endif
 
