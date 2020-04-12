@@ -3,8 +3,8 @@
 </p>
 
 [![Build Status](https://github.com/asam139/Steps/workflows/Steps/badge.svg?branch=master)](https://github.com/asam139/Steps/actions)
-[![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20Linux-lightgrey.svg)](https://github.com/SwifterSwift/swifterSwift)
-[![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
+[![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20Linux-lightgrey.svg)](https://github.com/asam139/Steps)
+[![Cocoapods](https://img.shields.io/cocoapods/v/Steps.svg)](https://cocoapods.org/pods/Steps)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager/)
 [![codecov](https://codecov.io/gh/asam139/Steps/branch/master/graph/badge.svg)](https://codecov.io/gh/asam139/Steps)
 [![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
@@ -68,7 +68,7 @@ let package = Package(
 ## Get involved
 
 We want your feedback.
-Please refer to [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md) before participating.
+Please refer to [contributing guidelines](https://github.com/asam139/Steps/tree/master/CONTRIBUTING.md) before participating.
 
 ## Thanks
 
