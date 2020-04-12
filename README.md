@@ -28,6 +28,7 @@ Steps is a navigation bar that guides users through the steps of a task. You nee
 <p>To integrate Steps into your Xcode project using <a href="http://cocoapods.org">CocoaPods</a>, specify it in your <code>Podfile</code>:</p>
 
 <pre><code class="ruby language-ruby">pod 'Steps'</code></pre>
+</details>
 
 <details>
 <summary>Swift Package Manager</summary>
