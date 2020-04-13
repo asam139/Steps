@@ -10,6 +10,8 @@
 		9C3CACED2440EFCB0088C114 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CACEC2440EFCB0088C114 /* ContentView.swift */; };
 		9C70629924422A000061E8D8 /* Steps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C706294244229E50061E8D8 /* Steps.framework */; };
 		9C70629A24422A000061E8D8 /* Steps.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C706294244229E50061E8D8 /* Steps.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9C7F43E72444EFFC005DC0C8 /* SwifterSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C706298244229E50061E8D8 /* SwifterSwiftUI.framework */; };
+		9C7F43E82444EFFC005DC0C8 /* SwifterSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C706298244229E50061E8D8 /* SwifterSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9A12776235699C600D136A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A12775235699C600D136A5 /* AppDelegate.swift */; };
 		D9A12778235699C600D136A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A12777235699C600D136A5 /* SceneDelegate.swift */; };
 		D9A1277D235699C600D136A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A1277B235699C600D136A5 /* Main.storyboard */; };
@@ -49,6 +51,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				9C70629A24422A000061E8D8 /* Steps.framework in Embed Frameworks */,
+				9C7F43E82444EFFC005DC0C8 /* SwifterSwiftUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C70629924422A000061E8D8 /* Steps.framework in Frameworks */,
+				9C7F43E72444EFFC005DC0C8 /* SwifterSwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +204,7 @@
 		};
 		9C706296244229E50061E8D8 /* StepsTests.xctest */ = {
 			isa = PBXReferenceProxy;
-			fileType = file;
+			fileType = wrapper.cfbundle;
 			path = StepsTests.xctest;
 			remoteRef = 9C706295244229E50061E8D8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;

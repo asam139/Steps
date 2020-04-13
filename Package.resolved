@@ -5,9 +5,9 @@
         "package": "SwifterSwiftUI",
         "repositoryURL": "https://github.com/asam139/SwifterSwiftUI.git",
         "state": {
-          "branch": "master",
-          "revision": "a829ae54723fa297be426759367f5c2992709589",
-          "version": null
+          "branch": null,
+          "revision": "3db7e9c9bfbe4afc3a08e5d96d61b2ae8000700c",
+          "version": "0.2.0"
         }
       }
     ]

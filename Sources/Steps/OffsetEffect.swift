@@ -10,7 +10,7 @@ import SwiftUI
 struct OffsetEffect: GeometryEffect {
     private(set) var offset: CGFloat
     private(set) var pct: CGFloat
-    private(set) var factor: CGFloat = 0.1
+    private(set) var factor: CGFloat
 
     private var offsetDiff: CGFloat = 0
 
