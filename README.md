@@ -22,7 +22,6 @@ Steps is a navigation bar that guides users through the steps of a task. You nee
 
 <details>
 <summary>CocoaPods</summary>
-</br>
 <p>To integrate Steps into your Xcode project using <a href="http://cocoapods.org">CocoaPods</a>, specify it in your <code>Podfile</code>:</p>
 
 <pre><code class="ruby language-ruby">pod 'Steps'</code></pre>
@@ -30,7 +29,6 @@ Steps is a navigation bar that guides users through the steps of a task. You nee
 
 <details>
 <summary>Swift Package Manager</summary>
-</br>
 <p>You can use <a href="https://swift.org/package-manager">The Swift Package Manager</a> to install <code>Steps</code> by adding the proper description to your <code>Package.swift</code> file:</p>
 
 <pre><code class="swift language-swift">import PackageDescription
@@ -39,7 +37,7 @@ let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
     dependencies: [
-        .package(url: "https://github.com/asam139/Steps.git", from: "1.0.0")
+        .package(url: "https://github.com/asam139/Steps.git", from: "0.2.0")
     ]
 )
 </code></pre>
@@ -58,11 +56,51 @@ let package = Package(
 
 <details>
 <summary>Manually</summary>
-</br>
 <p>Add the Steps project to your Xcode project</p>
 </details>
 
 ## Example
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/asam139/Steps/master/Assets/example.gif" title="stepsexample" height="400">
+</p>
+
+<pre><code class="swift language-swift">struct ContentView: View {
+    @ObservedObject private var stepsState: StepsState
+    private var config: StepsConfig
+
+    init() {
+        let steps = [
+            Step(title: "First", image: Image(systemName: "wind")),
+            Step(),
+            Step(title: "Third", image: Image(systemName: "tornado")),
+            Step(),
+            Step(title: "Fifth", image: Image(systemName: "hurricane"))
+        ]
+        stepsState = StepsState(steps: steps)
+        config = StepsConfig()
+    }
+
+    var body: some View {
+        VStack(spacing: 12) {
+            Steps(state: stepsState, config: config)
+                .font(.caption)
+                .padding()
+            Button(action: {
+                self.stepsState.nextStep()
+            }) {
+                Text("Next")
+            }
+            .disabled(!stepsState.hasNext)
+            Button(action: {
+                self.stepsState.previousStep()
+            }) {
+                Text("Previous")
+            }
+            .disabled(!stepsState.hasPrevious)
+        }.padding()
+    }
+}</code></pre>
 
 
 ## Get involved
