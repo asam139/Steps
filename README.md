@@ -3,7 +3,7 @@
 </p>
 
 [![Build Status](https://github.com/asam139/Steps/workflows/Steps/badge.svg?branch=master)](https://github.com/asam139/Steps/actions)
-[![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20Linux-lightgrey.svg)](https://github.com/asam139/Steps)
+[![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS%20%7C%20macOS-lightgrey.svg)](https://github.com/asam139/Steps)
 [![Cocoapods](https://img.shields.io/cocoapods/v/Steps.svg)](https://cocoapods.org/pods/Steps)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager/)
 [![codecov](https://codecov.io/gh/asam139/Steps/branch/master/graph/badge.svg)](https://codecov.io/gh/asam139/Steps)
@@ -15,7 +15,7 @@ Steps is a navigation bar that guides users through the steps of a task. You nee
 
 ## Requirements
 
-- **iOS** 10.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+ / **Ubuntu** 14.04+
+- **iOS** 10.0+ / **tvOS** 9.0+ / **macOS** 10.10+ / **Ubuntu** 14.04+
 - Swift 5.0+
 
 ## Installation
