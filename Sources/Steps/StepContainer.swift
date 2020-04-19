@@ -10,29 +10,30 @@ import SwiftUI
 import SwifterSwiftUI
 
 struct StepContainer<Content> : View where Content : View {
-    var size: CGFloat
+    @EnvironmentObject var config: StepsConfig
     var title: String?
     var content: Content
 
-    public init(size: CGFloat = 14, title: String? = nil, @ViewBuilder content: () -> Content) {
-        self.size = size
+    let inspection = Inspection<Self>()
+
+    public init(title: String? = nil, @ViewBuilder content: () -> Content) {
         self.title = title
         self.content = content()
     }
 
     var figurePadding: CGFloat {
-        return size * 0.5
+        return config.size * 0.5
     }
 
     var body: some View {
-        VStack(spacing: size * 0.75) {
+        VStack(spacing: config.size * 0.75) {
             VStack {
                 content
             }
-            .frame(height: size + 2 * figurePadding)
+            .frame(height: config.size + 2 * figurePadding)
             ifLet(title, then: { Text($0) })
                 .lineLimit(1)
-        }
+        }.onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 

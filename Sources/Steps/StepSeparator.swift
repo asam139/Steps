@@ -50,7 +50,7 @@ struct StepSeparator: View {
     }
 
     var body: some View {
-        StepContainer(size: config.size) {
+        StepContainer {
             Rectangle()
                 .frame(height: config.lineThickness)
                 .scaleEffect(x: scaleX, y: 1, anchor: .center)

@@ -17,15 +17,16 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/asam139/SwifterSwiftUI.git", from: "0.2.1"),
+        .package(url: "https://github.com/nalexn/ViewInspector", from: "0.3.11"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Steps",
-            dependencies: ["SwifterSwiftUI"]),
+            dependencies: ["SwifterSwiftUI", "ViewInspector"]),
         .testTarget(
             name: "StepsTests",
-            dependencies: ["Steps"]),
+            dependencies: ["Steps", "ViewInspector"]),
     ]
 )

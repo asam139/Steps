@@ -67,7 +67,7 @@ struct StepElement: View {
     }
 
     var body: some View {
-        StepContainer(size: config.size, title: step.title) {
+        StepContainer(title: step.title) {
             ifLet(image, then: {
                 $0.resizable()
             }, else: {
