@@ -30,6 +30,7 @@ public struct Steps: View {
     }
 }
 
+#if DEBUG
 struct Steps_Previews: PreviewProvider {
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
@@ -39,3 +40,4 @@ struct Steps_Previews: PreviewProvider {
         )
     }
 }
+#endif

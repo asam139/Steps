@@ -100,11 +100,12 @@ struct StepElement: View {
     }
 }
 
+#if DEBUG
 struct StepElement_Previews: PreviewProvider {
-
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
         let state = StepsState(steps: steps)
         return StepElement(index: 0, state: state)
     }
 }
+#endif

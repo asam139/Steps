@@ -70,6 +70,7 @@ struct StepSeparator: View {
     }
 }
 
+#if DEBUG
 struct StepSeparator_Previews: PreviewProvider {
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
@@ -77,3 +78,4 @@ struct StepSeparator_Previews: PreviewProvider {
         return StepSeparator(index: 0, state: state).environmentObject(StepsConfig())
     }
 }
+#endif

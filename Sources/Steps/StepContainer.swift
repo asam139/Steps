@@ -36,6 +36,7 @@ struct StepContainer<Content> : View where Content : View {
     }
 }
 
+#if DEBUG
 struct StepContainer_Previews: PreviewProvider {
     static var previews: some View {
         StepContainer {
@@ -43,3 +44,4 @@ struct StepContainer_Previews: PreviewProvider {
         }
     }
 }
+#endif
