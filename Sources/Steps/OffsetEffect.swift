@@ -16,8 +16,12 @@ struct OffsetEffect: GeometryEffect {
 
     init(offset: CGFloat, pct: CGFloat, factor: CGFloat = 0.1) {
         self.offset = offset
-        self.pct = pct
         self.factor = factor
+        if (pct >= 0.0 && pct <= 1.0) {
+            self.pct = pct
+        } else {
+            self.pct = pct < 0.0 ? 0.0 : 1.0
+        }
     }
 
     var animatableData: AnimatablePair<CGFloat, CGFloat> {

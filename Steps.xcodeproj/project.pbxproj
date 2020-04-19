@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		9C7F4444244CB385005DC0C8 /* StepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F4442244CB355005DC0C8 /* StepTests.swift */; };
+		9C7F4446244CB4CC005DC0C8 /* OffsetEffectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F4445244CB4CC005DC0C8 /* OffsetEffectTests.swift */; };
 		OBJ_48 /* OffsetEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* OffsetEffect.swift */; };
 		OBJ_49 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Step.swift */; };
 		OBJ_50 /* StepContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* StepContainer.swift */; };
@@ -62,9 +64,18 @@
 			remoteGlobalIDString = "SwifterSwiftUI::SwifterSwiftUI";
 			remoteInfo = SwifterSwiftUI;
 		};
+		9C7F4441244CB2C6005DC0C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Steps::StepsTests";
+			remoteInfo = StepsTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C7F4442244CB355005DC0C8 /* StepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTests.swift; sourceTree = "<group>"; };
+		9C7F4445244CB4CC005DC0C8 /* OffsetEffectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetEffectTests.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		OBJ_11 /* StepContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepContainer.swift; sourceTree = "<group>"; };
 		OBJ_12 /* StepElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepElement.swift; sourceTree = "<group>"; };
@@ -134,7 +145,9 @@
 		OBJ_18 /* StepsTests */ = {
 			isa = PBXGroup;
 			children = (
+				9C7F4445244CB4CC005DC0C8 /* OffsetEffectTests.swift */,
 				OBJ_19 /* StepsTests.swift */,
+				9C7F4442244CB355005DC0C8 /* StepTests.swift */,
 				OBJ_20 /* XCTestManifests.swift */,
 			);
 			name = StepsTests;
@@ -396,6 +409,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				9C7F4444244CB385005DC0C8 /* StepTests.swift in Sources */,
+				9C7F4446244CB4CC005DC0C8 /* OffsetEffectTests.swift in Sources */,
 				OBJ_76 /* StepsTests.swift in Sources */,
 				OBJ_77 /* XCTestManifests.swift in Sources */,
 			);
@@ -429,7 +444,7 @@
 		OBJ_70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Steps::StepsTests" /* StepsTests */;
-			targetProxy = "Steps::StepsTests" /* StepsTests */;
+			targetProxy = 9C7F4441244CB2C6005DC0C8 /* PBXContainerItemProxy */;
 		};
 		OBJ_81 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
