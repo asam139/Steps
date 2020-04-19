@@ -143,6 +143,7 @@
 				D9A1276F235699C600D136A5 /* Frameworks */,
 				D9A12770235699C600D136A5 /* Resources */,
 				9C70629B24422A000061E8D8 /* Embed Frameworks */,
+				9C7F4436244CB076005DC0C8 /* Lint */,
 			);
 			buildRules = (
 			);
@@ -204,7 +205,7 @@
 		};
 		9C706296244229E50061E8D8 /* StepsTests.xctest */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
+			fileType = file;
 			path = StepsTests.xctest;
 			remoteRef = 9C706295244229E50061E8D8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -230,6 +231,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C7F4436244CB076005DC0C8 /* Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Lint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which mint >/dev/null; then\n  mint run realm/SwiftLint@0.39.0 swiftlint autocorrect --format\nelse\n  echo \"warning: Mint not installed, download from https://github.com/yonaskolb/mint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D9A1276E235699C600D136A5 /* Sources */ = {
