@@ -29,7 +29,6 @@ final class StepContainerTests: XCTestCase {
         }
         ViewHosting.host(view: container.environmentObject(config))
         wait(for: [exp], timeout: 0.1)
-
     }
 
     static var allTests = [

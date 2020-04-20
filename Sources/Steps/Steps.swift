@@ -5,6 +5,8 @@ public struct Steps: View {
     @ObservedObject public private(set) var state: StepsState
     public private(set) var config: StepsConfig
 
+    let inspection = Inspection<Self>()
+
     public init(state: StepsState, config: StepsConfig = StepsConfig()) {
         self.state = state
         self.config = config
@@ -26,7 +28,9 @@ public struct Steps: View {
                     self.makeSeparatorAt(index: index)
                 }
             }
-        }.environmentObject(config)
+        }
+        .environmentObject(config)
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 
