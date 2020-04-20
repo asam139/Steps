@@ -19,6 +19,8 @@ struct StepSeparator: View {
     @State private var scaleX: CGFloat = 1
     private let minScaleX: CGFloat = 0.25
 
+    let inspection = Inspection<Self>()
+
     private var stepState: Step.State {
         return state.stepStateFor(index: index)
     }
@@ -67,6 +69,7 @@ struct StepSeparator: View {
             }
             self.previousIndex = nextIndex
         })
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 

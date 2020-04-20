@@ -23,6 +23,9 @@
 /* Begin PBXBuildFile section */
 		9C7F445B244CCE7F005DC0C8 /* TestsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F445A244CCE7F005DC0C8 /* TestsHelper.swift */; };
 		9C7F445E244CCEC6005DC0C8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F445D244CCEC6005DC0C8 /* Helpers.swift */; };
+		9C7F4462244E2666005DC0C8 /* StepSeparatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F4461244E2666005DC0C8 /* StepSeparatorTests.swift */; };
+		9C7F4464244E2F0F005DC0C8 /* StepElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F4463244E2F0F005DC0C8 /* StepElementTests.swift */; };
+		9C7F4466244E2FD8005DC0C8 /* StepsStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F4465244E2FD8005DC0C8 /* StepsStateTests.swift */; };
 		OBJ_120 /* OffsetEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* OffsetEffect.swift */; };
 		OBJ_121 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Step.swift */; };
 		OBJ_122 /* StepContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* StepContainer.swift */; };
@@ -159,6 +162,9 @@
 /* Begin PBXFileReference section */
 		9C7F445A244CCE7F005DC0C8 /* TestsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsHelper.swift; sourceTree = "<group>"; };
 		9C7F445D244CCEC6005DC0C8 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		9C7F4461244E2666005DC0C8 /* StepSeparatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepSeparatorTests.swift; sourceTree = "<group>"; };
+		9C7F4463244E2F0F005DC0C8 /* StepElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepElementTests.swift; sourceTree = "<group>"; };
+		9C7F4465244E2FD8005DC0C8 /* StepsStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsStateTests.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		OBJ_104 /* Example */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Example; sourceTree = SOURCE_ROOT; };
 		OBJ_105 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = SOURCE_ROOT; };
@@ -307,10 +313,13 @@
 			children = (
 				OBJ_19 /* OffsetEffectTests.swift */,
 				OBJ_20 /* StepContainerTests.swift */,
+				9C7F4461244E2666005DC0C8 /* StepSeparatorTests.swift */,
+				9C7F4463244E2F0F005DC0C8 /* StepElementTests.swift */,
 				OBJ_21 /* StepTests.swift */,
 				OBJ_22 /* StepsTests.swift */,
 				OBJ_23 /* XCTestManifests.swift */,
 				9C7F445A244CCE7F005DC0C8 /* TestsHelper.swift */,
+				9C7F4465244E2FD8005DC0C8 /* StepsStateTests.swift */,
 			);
 			name = StepsTests;
 			path = Tests/StepsTests;
@@ -448,7 +457,7 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -468,7 +477,6 @@
 				OBJ_113 /* Gemfile */,
 				OBJ_114 /* Gemfile.lock */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -637,7 +645,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_99 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -683,12 +691,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				9C7F4462244E2666005DC0C8 /* StepSeparatorTests.swift in Sources */,
 				OBJ_151 /* OffsetEffectTests.swift in Sources */,
+				9C7F4464244E2F0F005DC0C8 /* StepElementTests.swift in Sources */,
 				OBJ_152 /* StepContainerTests.swift in Sources */,
 				OBJ_153 /* StepTests.swift in Sources */,
 				9C7F445B244CCE7F005DC0C8 /* TestsHelper.swift in Sources */,
 				OBJ_154 /* StepsTests.swift in Sources */,
 				OBJ_155 /* XCTestManifests.swift in Sources */,
+				9C7F4466244E2FD8005DC0C8 /* StepsStateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

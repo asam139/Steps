@@ -18,6 +18,8 @@ struct StepElement: View {
     @State private var previousIndex: Int = 0
     @State private var offset: CGFloat = 0
 
+    let inspection = Inspection<Self>()
+
     private var stepState: Step.State {
         return state.stepStateFor(index: index)
     }
@@ -97,6 +99,7 @@ struct StepElement: View {
             }
             self.previousIndex = nextIndex
         })
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 
