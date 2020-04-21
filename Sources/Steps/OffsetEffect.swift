@@ -7,13 +7,27 @@
 
 import SwiftUI
 
+// Custom offset effect to simulate acceleration deforming the view
 struct OffsetEffect: GeometryEffect {
+
+    /// The offset of the effect
     private(set) var offset: CGFloat
+
+    /// The percentage between two values of offset. [0, 1]
     private(set) var pct: CGFloat
+
+    /// The factor to control the deformation
     private(set) var factor: CGFloat
 
+    /// The difference the offset in each update
     private var offsetDiff: CGFloat = 0
 
+    /// Initializes a new offset effect
+    ///
+    /// - Parameters:
+    ///   - offset: offset to be animated
+    ///   - pct: percentage of the animation
+    ///   - factor: factor to deform
     init(offset: CGFloat, pct: CGFloat, factor: CGFloat = 0.1) {
         self.offset = offset
         self.factor = factor

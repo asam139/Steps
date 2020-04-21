@@ -1,21 +1,39 @@
 import SwiftUI
 import Combine
 
+/// 🏄‍♂️ A navigation bar that guides users through the steps of a task.
 public struct Steps: View {
+    /// The main state of the component
     @ObservedObject public private(set) var state: StepsState
+
+    /// The style of the component
     public private(set) var config: StepsConfig
 
+    /// Helper to inspect
     let inspection = Inspection<Self>()
 
+    /// Initializes a new steps component with the initial state and config.
+    ///
+    /// - Parameters:
+    ///   - state: Initial state.
+    ///   - config: Initial config.
     public init(state: StepsState, config: StepsConfig = StepsConfig()) {
         self.state = state
         self.config = config
     }
 
+    /// Initializes a new step element.
+    ///
+    /// - Parameters:
+    ///   - index: index of the step
     private func makeStepAt(index: Int) -> some View {
         return StepElement(index: index, state: state)
     }
 
+    /// Initializes a new step element.
+    ///
+    /// - Parameters:
+    ///   - index: index of the step
     private func makeSeparatorAt(index: Int) -> some View {
         return StepSeparator(index: index, state: state)
     }

@@ -21,7 +21,7 @@ struct ContentView: View {
             Step(),
             Step(title: "Fifth", image: Image(systemName: "hurricane"))
         ]
-        stepsState = StepsState(steps: steps)
+        stepsState = StepsState(steps: steps, initialStep: 1)
         config = StepsConfig()
     }
 

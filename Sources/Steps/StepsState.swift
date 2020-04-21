@@ -8,15 +8,30 @@
 import Combine
 
 public class StepsState: ObservableObject {
+    /// Array of all steps
     public let steps: [Step]
+
+    /// Indicate the current step
     @Published public private(set) var currentIndex: Int = 0
+
+    /// Indicate if there is a next step
     @Published public private(set) var hasNext: Bool = true
+
+    /// Indicate if there is a previous step
     @Published public private(set) var hasPrevious: Bool = true
 
+    /// Set to store all cancellables
     private var cancellable: AnyCancellable?
 
-    public init(steps: [Step]) {
+    /// Initializes a new state.
+    ///
+    /// - Parameters:
+    ///   - steps: array of all steps
+    public init(steps: [Step], initialStep: Int = 0) {
         self.steps = steps
+        if (initialStep >= steps.startIndex && initialStep <= steps.endIndex) {
+            currentIndex = initialStep
+        }
 
         cancellable = $currentIndex.sink { (index) in
             self.hasNext = index < self.steps.endIndex
@@ -24,6 +39,7 @@ public class StepsState: ObservableObject {
         }
     }
 
+    /// Move to the next step
     public func nextStep() {
         if (currentIndex > steps.endIndex) {
             return
@@ -31,6 +47,7 @@ public class StepsState: ObservableObject {
         currentIndex += 1
     }
 
+    /// Move to the previous step
     public func previousStep() {
         if (currentIndex == steps.startIndex) {
             return
@@ -38,7 +55,8 @@ public class StepsState: ObservableObject {
         currentIndex -= 1
     }
 
-    func stepStateFor(index: Int) -> Step.State {
+    /// Get state for step at an index
+    func stepStateFor(index: Int) -> StepState {
         if (index < currentIndex) {
             return .completed
         } else if index == currentIndex {
@@ -47,6 +65,7 @@ public class StepsState: ObservableObject {
         return .uncompleted
     }
 
+    /// Get step in an index
     func stepAtIndex(index: Int) -> Step {
         return steps[index]
     }

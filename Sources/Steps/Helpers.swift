@@ -10,6 +10,7 @@ import Combine
 
 // MARK: - View Inspection helper
 
+/// Helper to inspection in the tests
 internal final class Inspection<V> where V: View {
     let notice = PassthroughSubject<UInt, Never>()
     var callbacks = [UInt: (V) -> Void]()

@@ -24,7 +24,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Steps",
-            dependencies: ["SwifterSwiftUI", "ViewInspector"]),
+            dependencies: ["SwifterSwiftUI"]),
         .testTarget(
             name: "StepsTests",
             dependencies: ["Steps", "ViewInspector"]),
