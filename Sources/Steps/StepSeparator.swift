@@ -9,22 +9,35 @@
 import SwiftUI
 import SwifterSwiftUI
 
+/// Element to represent each separator between steps
 struct StepSeparator: View {
+    /// Index of this step
+    private(set) var index: Int
+
+    /// The main state
+    @ObservedObject private(set) var state: StepsState
+
+    /// The style of the component
     @EnvironmentObject var config: StepsConfig
 
-    var index: Int
-    @ObservedObject var state: StepsState
-
-    @State private var previousIndex: Int = 0
-    @State private var scaleX: CGFloat = 1
-    private let minScaleX: CGFloat = 0.25
-
+    /// Helper to inspect
     let inspection = Inspection<Self>()
 
-    private var stepState: Step.State {
+    /// Previous index
+    @State private var previousIndex: Int = 0
+
+    /// Current scale to be animated
+    @State private var scaleX: CGFloat = 1
+
+    /// Min scale in the axis X
+    private let minScaleX: CGFloat = 0.25
+
+    /// Get current step state  for the set index
+    private var stepState: StepState {
         return state.stepStateFor(index: index)
     }
 
+    /// Get foreground color for the current step
     private var foregroundColor: Color {
         switch stepState {
         case .uncompleted,
@@ -35,6 +48,7 @@ struct StepSeparator: View {
         }
     }
 
+    /// Update the scale to animate according the next index
     private func updateScale(nextIndex: Int) {
         let diff = nextIndex - previousIndex
         if abs(diff) != 1 {

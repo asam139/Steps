@@ -9,20 +9,28 @@
 import SwiftUI
 import SwifterSwiftUI
 
+/// Container for each subview of the bar
 struct StepContainer<Content> : View where Content : View {
+    /// The style of the component
     @EnvironmentObject var config: StepsConfig
+
+    /// The title of the subcomponent
     var title: String?
+
+    /// The content of the container
     var content: Content
 
+    /// Helper to inspect
     let inspection = Inspection<Self>()
 
+    /// Initializes a new step container
+    ///
+    /// - Parameters:
+    ///   - title: title
+    ///   - content: content of the container
     public init(title: String? = nil, @ViewBuilder content: () -> Content) {
         self.title = title
         self.content = content()
-    }
-
-    var figurePadding: CGFloat {
-        return config.size * 0.5
     }
 
     var body: some View {
@@ -30,7 +38,7 @@ struct StepContainer<Content> : View where Content : View {
             VStack {
                 content
             }
-            .frame(height: config.size + 2 * figurePadding)
+            .frame(height: config.size + 2 * config.figurePadding)
             ifLet(title, then: { Text($0) })
                 .lineLimit(1)
         }.onReceive(inspection.notice) { self.inspection.visit(self, $0) }

@@ -9,29 +9,42 @@
 import SwiftUI
 import SwifterSwiftUI
 
+/// Element to represent each step
 struct StepElement: View {
+    /// Index of this step
+    private(set) var index: Int
+
+    /// The main state
+    @ObservedObject private(set) var state: StepsState
+
+    /// The style of the component
     @EnvironmentObject var config: StepsConfig
 
-    var index: Int
-    @ObservedObject var state: StepsState
-
-    @State private var previousIndex: Int = 0
-    @State private var offset: CGFloat = 0
-
+    /// Helper to inspect
     let inspection = Inspection<Self>()
 
-    private var stepState: Step.State {
+    /// Previous index
+    @State private var previousIndex: Int = 0
+
+    /// Current offset to be animated
+    @State private var offset: CGFloat = 0
+
+    /// Get current step state  for the set index
+    private var stepState: StepState {
         return state.stepStateFor(index: index)
     }
 
+    /// Get step object for the set index
     private var step: Step {
         return state.stepAtIndex(index: index)
     }
 
+    /// Get image for the current step
     private var image: Image? {
         return stepState != .completed ? step.image : config.image
     }
 
+    /// Get foreground color for the current step
     private var foregroundColor: Color {
         switch stepState {
         case .uncompleted:
@@ -41,14 +54,12 @@ struct StepElement: View {
         }
     }
 
-    private var figurePadding: CGFloat {
-        return config.size * 0.5
-    }
-
+    /// Max diff offset to be animated
     private var maxOffset: CGFloat {
         return config.spacing * 2
     }
 
+    /// Update the offset to animate according the next index
     private func updateOffset(nextIndex: Int) {
         let diff = nextIndex - previousIndex
         if abs(diff) != 1 {
@@ -76,7 +87,7 @@ struct StepElement: View {
                 Text("\(index + 1)").font(.system(size: config.size))
             })
                 .frame(width: config.size, height: config.size)
-                .padding(figurePadding)
+                .padding(config.figurePadding)
                 .if(index == state.currentIndex, then: {
                     $0.background(config.primaryColor).foregroundColor(config.secondaryColor)
                 }, else: {

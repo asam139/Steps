@@ -26,6 +26,7 @@
 		9C7F4462244E2666005DC0C8 /* StepSeparatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F4461244E2666005DC0C8 /* StepSeparatorTests.swift */; };
 		9C7F4464244E2F0F005DC0C8 /* StepElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F4463244E2F0F005DC0C8 /* StepElementTests.swift */; };
 		9C7F4466244E2FD8005DC0C8 /* StepsStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F4465244E2FD8005DC0C8 /* StepsStateTests.swift */; };
+		9C7F4468244F5FB9005DC0C8 /* StepState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7F4467244F5FB9005DC0C8 /* StepState.swift */; };
 		OBJ_120 /* OffsetEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* OffsetEffect.swift */; };
 		OBJ_121 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Step.swift */; };
 		OBJ_122 /* StepContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* StepContainer.swift */; };
@@ -165,6 +166,7 @@
 		9C7F4461244E2666005DC0C8 /* StepSeparatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepSeparatorTests.swift; sourceTree = "<group>"; };
 		9C7F4463244E2F0F005DC0C8 /* StepElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepElementTests.swift; sourceTree = "<group>"; };
 		9C7F4465244E2FD8005DC0C8 /* StepsStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsStateTests.swift; sourceTree = "<group>"; };
+		9C7F4467244F5FB9005DC0C8 /* StepState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepState.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		OBJ_104 /* Example */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Example; sourceTree = SOURCE_ROOT; };
 		OBJ_105 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = SOURCE_ROOT; };
@@ -498,6 +500,7 @@
 				OBJ_14 /* Steps.swift */,
 				OBJ_15 /* StepsConfig.swift */,
 				OBJ_16 /* StepsState.swift */,
+				9C7F4467244F5FB9005DC0C8 /* StepState.swift */,
 				9C7F445D244CCEC6005DC0C8 /* Helpers.swift */,
 			);
 			name = Steps;
@@ -676,6 +679,7 @@
 				OBJ_125 /* Steps.swift in Sources */,
 				OBJ_126 /* StepsConfig.swift in Sources */,
 				OBJ_127 /* StepsState.swift in Sources */,
+				9C7F4468244F5FB9005DC0C8 /* StepState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
