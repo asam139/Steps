@@ -29,7 +29,9 @@ public class StepsState: ObservableObject {
     ///   - steps: array of all steps
     public init(steps: [Step], initialStep: Int = 0) {
         self.steps = steps
-        self.currentIndex = initialStep
+        if (initialStep >= steps.startIndex && initialStep <= steps.endIndex) {
+            currentIndex = initialStep
+        }
 
         cancellable = $currentIndex.sink { (index) in
             self.hasNext = index < self.steps.endIndex
