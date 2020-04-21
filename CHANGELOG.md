@@ -18,6 +18,11 @@ The changelog for **Steps**. Also see the [releases](https://github.com/asam139/
 
 ---
 
-## [v0.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/0.0.0)
+## [v0.2.0](https://github.com/asam139/Steps/releases/tag/0.2.0)
+
+### Added
+- Add documentation
+- Implement tests
+- Initial implementation
 
 ---
