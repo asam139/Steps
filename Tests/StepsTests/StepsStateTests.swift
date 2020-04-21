@@ -13,10 +13,8 @@ import ViewInspector
 final class StepsStateTests: XCTestCase {
     let steps = [Step(), Step()]
 
-
     func testStepsTests() {
         let state = StepsState(steps: steps)
-
 
         let currentIndex = state.currentIndex
         state.nextStep()

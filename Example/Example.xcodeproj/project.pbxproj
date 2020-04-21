@@ -41,6 +41,13 @@
 			remoteGlobalIDString = "SwifterSwiftUI::SwifterSwiftUI::Product";
 			remoteInfo = SwifterSwiftUI;
 		};
+		9C7F4472244F678B005DC0C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C70628A244229E50061E8D8 /* Steps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "ViewInspector::ViewInspector::Product";
+			remoteInfo = ViewInspector;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +96,7 @@
 				9C706294244229E50061E8D8 /* Steps.framework */,
 				9C706296244229E50061E8D8 /* StepsTests.xctest */,
 				9C706298244229E50061E8D8 /* SwifterSwiftUI.framework */,
+				9C7F4473244F678B005DC0C8 /* ViewInspector.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -215,6 +223,13 @@
 			fileType = wrapper.framework;
 			path = SwifterSwiftUI.framework;
 			remoteRef = 9C706297244229E50061E8D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9C7F4473244F678B005DC0C8 /* ViewInspector.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ViewInspector.framework;
+			remoteRef = 9C7F4472244F678B005DC0C8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
