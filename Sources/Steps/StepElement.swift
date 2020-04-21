@@ -110,7 +110,7 @@ struct StepElement: View {
             }
             self.previousIndex = nextIndex
         })
-        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 
