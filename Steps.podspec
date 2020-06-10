@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Steps'
-  s.version          = '0.3.1'
+  s.version          = '0.3.2'
   s.summary          = 'Steps is a navigation bar that guides users through the steps of a task.'
   s.description      = <<-DESC
 Steps is a navigation bar that guides users through the steps of a task. You need to use it when a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
