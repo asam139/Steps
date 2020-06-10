@@ -40,8 +40,12 @@ struct StepContainer<Content> : View where Content : View {
             }
             .frame(height: config.size + 2 * config.figurePadding)
             ifLet(title, then: { Text($0) })
+                .fixedSize(horizontal: true, vertical: false)
                 .lineLimit(1)
-        }.onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+
+        }
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 

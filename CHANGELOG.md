@@ -17,6 +17,10 @@ The changelog for **Steps**. Also see the [releases](https://github.com/asam139/
 ### Security
 
 ---
+## [v0.3.3](https://github.com/asam139/Steps/releases/tag/0.3.3)
+### Fixed
+- Fix layout for title
+
 ## [v0.3.2](https://github.com/asam139/Steps/releases/tag/0.3.2)
 ### Added
 - Update deps

@@ -15,11 +15,11 @@ struct ContentView: View {
 
     init() {
         let steps = [
-            Step(title: "First", image: Image(systemName: "wind")),
+            Step(title: "First_", image: Image(systemName: "wind")),
             Step(),
-            Step(title: "Third", image: Image(systemName: "tornado")),
+            Step(title: "Second__", image: Image(systemName: "tornado")),
             Step(),
-            Step(title: "Fifth", image: Image(systemName: "hurricane"))
+            Step(title: "Fifth_____", image: Image(systemName: "hurricane"))
         ]
         stepsState = StepsState(steps: steps, initialStep: 1)
         config = StepsConfig()
