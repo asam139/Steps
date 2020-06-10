@@ -18,7 +18,8 @@ The changelog for **Steps**. Also see the [releases](https://github.com/asam139/
 
 ---
 ## [v0.3.1](https://github.com/asam139/Steps/releases/tag/0.3.1)
-
+### Added
+- Update deps
 
 ## [v0.3.0](https://github.com/asam139/Steps/releases/tag/0.3.0)
 ### Added
