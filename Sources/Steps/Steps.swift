@@ -22,15 +22,15 @@ public struct Steps: View {
         self.state = state
     }
 
-    /// Initializes a new step element.
+    /// Initializes a new item.
     ///
     /// - Parameters:
     ///   - index: index of the step
     private func makeStepAt(index: Int) -> some View {
-        return Element(index: index, state: state)
+        return Item(index: index, state: state)
     }
 
-    /// Initializes a new step element.
+    /// Initializes a new separator
     ///
     /// - Parameters:
     ///   - index: index of the step

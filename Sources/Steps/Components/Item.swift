@@ -1,5 +1,5 @@
 //
-//  Element.swift
+//  Item.swift
 //  Steps
 //
 //  Created by Saul Moreno Abril on 09/04/2020.
@@ -9,8 +9,9 @@
 import SwiftUI
 import SwifterSwiftUI
 
-/// Element to represent each step
-struct Element: View {
+/// Item to represent each step
+@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+struct Item: View {
     /// Index of this step
     private(set) var index: Int
 
@@ -115,11 +116,11 @@ struct Element: View {
 }
 
 #if DEBUG
-struct Element_Previews: PreviewProvider {
+struct Item_Previews: PreviewProvider {
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
         let state = StepsState(steps: steps)
-        return Element(index: 0, state: state)
+        return Item(index: 0, state: state)
     }
 }
 #endif

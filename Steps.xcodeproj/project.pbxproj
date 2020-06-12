@@ -22,7 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		OBJ_149 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Container.swift */; };
-		OBJ_150 /* StepElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* StepElement.swift */; };
+		OBJ_150 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Item.swift */; };
 		OBJ_151 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Separator.swift */; };
 		OBJ_152 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Helpers.swift */; };
 		OBJ_153 /* OffsetEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* OffsetEffect.swift */; };
@@ -178,7 +178,7 @@
 		OBJ_107 /* RadialGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradient.swift; sourceTree = "<group>"; };
 		OBJ_108 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		OBJ_109 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		OBJ_11 /* StepElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepElement.swift; sourceTree = "<group>"; };
+		OBJ_11 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		OBJ_110 /* SecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureField.swift; sourceTree = "<group>"; };
 		OBJ_111 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		OBJ_112 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
@@ -644,7 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* Container.swift */,
-				OBJ_11 /* StepElement.swift */,
+				OBJ_11 /* Item.swift */,
 				OBJ_12 /* Separator.swift */,
 			);
 			path = Components;
@@ -802,7 +802,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_149 /* Container.swift in Sources */,
-				OBJ_150 /* StepElement.swift in Sources */,
+				OBJ_150 /* Item.swift in Sources */,
 				OBJ_151 /* Separator.swift in Sources */,
 				OBJ_152 /* Helpers.swift in Sources */,
 				OBJ_153 /* OffsetEffect.swift in Sources */,

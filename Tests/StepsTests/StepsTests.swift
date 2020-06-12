@@ -11,7 +11,7 @@ import ViewInspector
 @testable import Steps
 
 extension Steps: Inspectable { }
-extension TupleView : Inspectable where T == (Element, Separator?) {}
+extension TupleView : Inspectable where T == (Item, Separator?) {}
 
 final class StepsTests: XCTestCase {
     let config = Config()
@@ -26,9 +26,9 @@ final class StepsTests: XCTestCase {
             let count = try view.actualView().state.steps.count
             for i in 0...count+1 {
                 if (i < count) {
-                    XCTAssertNoThrow(try view.hStack().forEach(0).view(TupleView<(Element, Separator?)>.self, i))
+                    XCTAssertNoThrow(try view.hStack().forEach(0).view(TupleView<(Item, Separator?)>.self, i))
                 } else {
-                    XCTAssertThrowsError(try view.hStack().forEach(0).view(TupleView<(Element, Separator?)>.self, i))
+                    XCTAssertThrowsError(try view.hStack().forEach(0).view(TupleView<(Item, Separator?)>.self, i))
                 }
             }
         }
