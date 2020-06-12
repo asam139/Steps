@@ -19,8 +19,7 @@ public struct Steps<Element>: View {
 
     /// Initializes a new `Steps`.
     ///
-    /// - Parameter data: Array of items to populate the content
-    /// - Parameter id: KeyPath to identifiable property
+    /// - Parameter state: State to manage component
     /// - Parameter onCreateStep: Block to create each step
     public init(state: StepsState<Element>, onCreateStep: @escaping (Element) -> Step) {
         self.state = state
@@ -45,7 +44,6 @@ public struct Steps<Element>: View {
         return ViewBuilder.buildBlock(first,second)
     }
 
-    //let step = self.onCreateStep(element)
     public var body: some View {
         HStack(alignment: .top, spacing: config.itemSpacing) {
             ForEach(state.data.indices) { index in
@@ -58,15 +56,17 @@ public struct Steps<Element>: View {
 }
 
 #if DEBUG
-//struct Steps_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let steps = [Step(title: "First"), Step(), Step()]
-//        let state = StepsState(steps: steps)
-//        return (
-//            Steps(state: state).padding()
-//        )
-//    }
-//}
+struct Steps_Previews: PreviewProvider {
+    static var previews: some View {
+        let steps = ["First", "", ""]
+        let state = StepsState(data: steps)
+        return (
+            Steps(state: state, onCreateStep: { element in
+                Step(title: element)
+            }).padding()
+        )
+    }
+}
 #endif
 
 // MARK: Builders

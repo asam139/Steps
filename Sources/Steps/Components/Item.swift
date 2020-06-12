@@ -108,8 +108,13 @@ struct Item<Element>: View {
 #if DEBUG
 struct Item_Previews: PreviewProvider {
     static var previews: some View {
-        let state = StepsState(data: ["First", "Second", "Third"])
-        return Item(step:Step(title: "First"), state: state)
+        let steps = ["First", "", ""]
+        let state = StepsState(data: steps)
+        return (
+            Steps(state: state, onCreateStep: { element in
+                Step(title: element)
+            }).padding()
+        )
     }
 }
 #endif

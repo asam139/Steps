@@ -87,8 +87,13 @@ struct Separator<Element>: View {
 #if DEBUG
 struct Separator_Previews: PreviewProvider {
     static var previews: some View {
-        let state = StepsState(data: ["First", "Second", "Third"])
-        return Separator(step: Step(title: "First"), state: state).environmentObject(Config())
+        let steps = ["First", "", ""]
+        let state = StepsState(data: steps)
+        return (
+            Steps(state: state, onCreateStep: { element in
+                Step(title: element)
+            }).padding()
+        )
     }
 }
 #endif
