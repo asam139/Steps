@@ -11,7 +11,8 @@ import Steps
 
 struct ContentView: View {
     @ObservedObject private var stepsState: StepsState
-    private var config: StepsConfig
+
+    @State var color = Color.red
 
     init() {
         let steps = [
@@ -22,18 +23,19 @@ struct ContentView: View {
             Step(title: "Fifth_____", image: Image(systemName: "hurricane"))
         ]
         stepsState = StepsState(steps: steps, initialStep: 1)
-        config = StepsConfig()
     }
 
     var body: some View {
         VStack(spacing: 12) {
-            Steps(state: stepsState, config: config)
-                .itemSpacing(5)
+            Steps(state: stepsState)
+                .itemSpacing(10)
+                .primaryColor(color)
                 .font(.caption)
                 .padding()
 
             Button(action: {
                 self.stepsState.nextStep()
+                self.color = .yellow
             }) {
                 Text("Next")
             }

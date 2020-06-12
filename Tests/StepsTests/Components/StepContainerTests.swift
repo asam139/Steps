@@ -13,7 +13,7 @@ import ViewInspector
 extension StepContainer: Inspectable { }
 
 final class StepContainerTests: XCTestCase {
-    let config = StepsConfig()
+    let config = Config()
 
     func testStepContainer() {
         let title = "Title"

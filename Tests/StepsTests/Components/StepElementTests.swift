@@ -13,7 +13,7 @@ import ViewInspector
 extension StepElement: Inspectable { }
 
 final class StepElementTests: XCTestCase {
-    let config = StepsConfig()
+    let config = Config()
     let steps = [Step(), Step()]
     lazy var state: StepsState = {
         return StepsState(steps: steps)

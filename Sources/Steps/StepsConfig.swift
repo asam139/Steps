@@ -1,5 +1,5 @@
 //
-//  StepsConfig.swift
+//  Config.swift
 //
 //
 //  Created by Saul Moreno Abril on 11/04/2020.
@@ -10,7 +10,7 @@ import Combine
 
 /// Object to manage the config of the main component
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-class StepsConfig: ObservableObject {
+class Config: ObservableObject {
 
     /// Spacing between elements
     @Published var itemSpacing: CGFloat = 5

@@ -8,7 +8,7 @@ public struct Steps: View {
     @ObservedObject public private(set) var state: StepsState
 
     /// The style of the component
-    private var config = StepsConfig()
+    private var config = Config()
 
     /// Helper to inspect
     let inspection = Inspection<Self>()

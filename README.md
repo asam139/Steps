@@ -67,7 +67,6 @@ let package = Package(
 
 <pre><code class="swift language-swift">struct ContentView: View {
     @ObservedObject private var stepsState: StepsState
-    private var config: StepsConfig
 
     init() {
         let steps = [
@@ -78,12 +77,11 @@ let package = Package(
             Step(title: "Fifth", image: Image(systemName: "hurricane"))
         ]
         stepsState = StepsState(steps: steps)
-        config = StepsConfig()
     }
 
     var body: some View {
         VStack(spacing: 12) {
-            Steps(state: stepsState, config: config)
+            Steps(state: stepsState)
                 .font(.caption)
                 .padding()
             Button(action: {

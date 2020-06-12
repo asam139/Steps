@@ -13,7 +13,7 @@ import ViewInspector
 extension StepSeparator: Inspectable { }
 
 final class StepSeparatorTests: XCTestCase {
-    let config = StepsConfig()
+    let config = Config()
     let steps = [Step(), Step()]
     lazy var state: StepsState = {
         return StepsState(steps: steps)

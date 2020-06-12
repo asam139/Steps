@@ -14,7 +14,7 @@ extension Steps: Inspectable { }
 extension TupleView : Inspectable where T == (StepElement, StepSeparator?) {}
 
 final class StepsTests: XCTestCase {
-    let config = StepsConfig()
+    let config = Config()
     let steps = [Step(), Step()]
     lazy var state: StepsState = {
         return StepsState(steps: steps)

@@ -18,7 +18,7 @@ struct StepElement: View {
     @ObservedObject private(set) var state: StepsState
 
     /// The style of the component
-    @EnvironmentObject var config: StepsConfig
+    @EnvironmentObject var config: Config
 
     /// Helper to inspect
     let inspection = Inspection<Self>()

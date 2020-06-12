@@ -12,7 +12,7 @@ import SwifterSwiftUI
 /// Container for each subview of the bar
 struct StepContainer<Content> : View where Content : View {
     /// The style of the component
-    @EnvironmentObject var config: StepsConfig
+    @EnvironmentObject var config: Config
 
     /// The title of the subcomponent
     var title: String?

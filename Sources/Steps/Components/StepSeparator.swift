@@ -18,7 +18,7 @@ struct StepSeparator: View {
     @ObservedObject private(set) var state: StepsState
 
     /// The style of the component
-    @EnvironmentObject var config: StepsConfig
+    @EnvironmentObject var config: Config
 
     /// Helper to inspect
     let inspection = Inspection<Self>()
@@ -92,7 +92,7 @@ struct StepSeparator_Previews: PreviewProvider {
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
         let state = StepsState(steps: steps)
-        return StepSeparator(index: 0, state: state).environmentObject(StepsConfig())
+        return StepSeparator(index: 0, state: state).environmentObject(Config())
     }
 }
 #endif
