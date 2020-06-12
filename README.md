@@ -73,7 +73,7 @@ let package = Package(
 struct ContentView: View {
     @ObservedObject private var stepsState: StepsState<Item>
 
-    @State var color = Color.red
+    @State var color = Color.blue
 
     init() {
         let items = [
@@ -93,7 +93,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 12) {
             Steps(state: stepsState, onCreateStep:onCreateStep)
-                .itemSpacing(10)
+                .itemSpacing(5)
                 .primaryColor(color)
                 .font(.caption)
                 .padding()
