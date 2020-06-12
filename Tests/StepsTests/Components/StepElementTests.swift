@@ -1,5 +1,5 @@
 //
-//  StepElementTests.swift
+//  ElementTests.swift
 //  StepsTests
 //
 //  Created by Saul Moreno Abril on 20/04/2020.
@@ -10,17 +10,17 @@ import SwiftUI
 import ViewInspector
 @testable import Steps
 
-extension StepElement: Inspectable { }
+extension Element: Inspectable { }
 
-final class StepElementTests: XCTestCase {
+final class ElementTests: XCTestCase {
     let config = Config()
     let steps = [Step(), Step()]
     lazy var state: StepsState = {
         return StepsState(steps: steps)
     }()
 
-    func testStepElement() {
-        let container = StepElement(index: 1, state: state)
+    func testElement() {
+        let container = Element(index: 1, state: state)
         XCTAssertEqual(container.index, 1)
 
         let exp = container.inspection.inspect { _ in
@@ -47,6 +47,6 @@ final class StepElementTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testStepElement", testStepElement)
+        ("testElement", testElement)
     ]
 }

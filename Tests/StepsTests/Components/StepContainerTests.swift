@@ -1,5 +1,5 @@
 //
-//  StepContainerTests.swift
+//  ContainerTests.swift
 //  StepsTests
 //
 //  Created by Saul Moreno Abril on 19/04/2020.
@@ -10,12 +10,12 @@ import SwiftUI
 import ViewInspector
 @testable import Steps
 
-extension StepContainer: Inspectable { }
+extension Container: Inspectable { }
 
-final class StepContainerTests: XCTestCase {
+final class ContainerTests: XCTestCase {
     let config = Config()
 
-    func testStepContainer() {
+    func testContainer() {
         let title = "Title"
 
         let container = StepContainer(title: title) {
@@ -30,8 +30,4 @@ final class StepContainerTests: XCTestCase {
         ViewHosting.host(view: container.environmentObject(config))
         wait(for: [exp], timeout: 0.1)
     }
-
-    static var allTests = [
-        ("testStepContainer", testStepContainer)
-    ]
 }

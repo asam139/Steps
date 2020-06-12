@@ -1,6 +1,6 @@
 //
-//  StepSeparator.swift
-//  curlyhair
+//  Separator.swift
+//  Steps
 //
 //  Created by Saul Moreno Abril on 09/04/2020.
 //  Copyright © 2020 Saul Moreno Abril. All rights reserved.
@@ -10,7 +10,7 @@ import SwiftUI
 import SwifterSwiftUI
 
 /// Element to represent each separator between steps
-struct StepSeparator: View {
+struct Separator: View {
     /// Index of this step
     private(set) var index: Int
 
@@ -66,7 +66,7 @@ struct StepSeparator: View {
     }
 
     var body: some View {
-        StepContainer {
+        Container {
             Rectangle()
                 .frame(height: config.lineThickness)
                 .scaleEffect(x: scaleX, y: 1, anchor: .center)
@@ -88,11 +88,11 @@ struct StepSeparator: View {
 }
 
 #if DEBUG
-struct StepSeparator_Previews: PreviewProvider {
+struct Separator_Previews: PreviewProvider {
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
         let state = StepsState(steps: steps)
-        return StepSeparator(index: 0, state: state).environmentObject(Config())
+        return Separator(index: 0, state: state).environmentObject(Config())
     }
 }
 #endif

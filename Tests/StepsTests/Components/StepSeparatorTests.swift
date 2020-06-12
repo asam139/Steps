@@ -1,5 +1,5 @@
 //
-//  StepSeparatorTests.swift
+//  SeparatorTests.swift
 //  StepsTests
 //
 //  Created by Saul Moreno Abril on 20/04/2020.
@@ -10,17 +10,17 @@ import SwiftUI
 import ViewInspector
 @testable import Steps
 
-extension StepSeparator: Inspectable { }
+extension Separator: Inspectable { }
 
-final class StepSeparatorTests: XCTestCase {
+final class SeparatorTests: XCTestCase {
     let config = Config()
     let steps = [Step(), Step()]
     lazy var state: StepsState = {
         return StepsState(steps: steps)
     }()
 
-    func testStepSeparator() {
-        let container = StepSeparator(index: 1, state: state)
+    func testSeparator() {
+        let container = Separator(index: 1, state: state)
         XCTAssertEqual(container.index, 1)
 
         let exp = container.inspection.inspect { _ in
@@ -39,8 +39,4 @@ final class StepSeparatorTests: XCTestCase {
         ViewHosting.host(view: container.environmentObject(config))
         wait(for: [exp, exp2, exp3], timeout: 5)
     }
-
-    static var allTests = [
-        ("testStepSeparator", testStepSeparator)
-    ]
 }

@@ -1,6 +1,6 @@
 //
-//  StepElement.swift
-//  curlyhair
+//  Element.swift
+//  Steps
 //
 //  Created by Saul Moreno Abril on 09/04/2020.
 //  Copyright © 2020 Saul Moreno Abril. All rights reserved.
@@ -10,7 +10,7 @@ import SwiftUI
 import SwifterSwiftUI
 
 /// Element to represent each step
-struct StepElement: View {
+struct Element: View {
     /// Index of this step
     private(set) var index: Int
 
@@ -80,7 +80,7 @@ struct StepElement: View {
     }
 
     var body: some View {
-        StepContainer(title: step.title) {
+        Container(title: step.title) {
             ifLet(image, then: {
                 $0.resizable()
             }, else: {
@@ -115,11 +115,11 @@ struct StepElement: View {
 }
 
 #if DEBUG
-struct StepElement_Previews: PreviewProvider {
+struct Element_Previews: PreviewProvider {
     static var previews: some View {
         let steps = [Step(title: "First"), Step(), Step()]
         let state = StepsState(steps: steps)
-        return StepElement(index: 0, state: state)
+        return Element(index: 0, state: state)
     }
 }
 #endif

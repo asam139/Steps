@@ -27,7 +27,7 @@ public struct Steps: View {
     /// - Parameters:
     ///   - index: index of the step
     private func makeStepAt(index: Int) -> some View {
-        return StepElement(index: index, state: state)
+        return Element(index: index, state: state)
     }
 
     /// Initializes a new step element.
@@ -35,7 +35,7 @@ public struct Steps: View {
     /// - Parameters:
     ///   - index: index of the step
     private func makeSeparatorAt(index: Int) -> some View {
-        return StepSeparator(index: index, state: state)
+        return Separator(index: index, state: state)
     }
 
     public var body: some View {
