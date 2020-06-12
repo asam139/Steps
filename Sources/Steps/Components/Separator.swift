@@ -12,10 +12,6 @@ import SwifterSwiftUI
 /// Item to represent each separator between steps
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 struct Separator<Element>: View {
-
-    /// Index of this step
-    var index: Int
-
     /// Get step object for the set index
     var step: Step
 
@@ -37,14 +33,9 @@ struct Separator<Element>: View {
     /// Min scale in the axis X
     private let minScaleX: CGFloat = 0.25
 
-    /// Get current step state  for the set index
-    private var stepState: StepState {
-        return state.stepStateFor(index: index)
-    }
-
     /// Get foreground color for the current step
     private var foregroundColor: Color {
-        switch stepState {
+        switch step.state {
         case .uncompleted,
              .current:
             return config.disabledColor
@@ -61,9 +52,9 @@ struct Separator<Element>: View {
             return
         }
 
-        if (previousIndex == index && diff > 0) {
+        if (previousIndex == step.index && diff > 0) {
             scaleX = minScaleX
-        } else if (nextIndex == index && diff < 0) {
+        } else if (nextIndex == step.index && diff < 0) {
             scaleX = minScaleX
         } else {
             scaleX = 1
@@ -97,7 +88,7 @@ struct Separator<Element>: View {
 struct Separator_Previews: PreviewProvider {
     static var previews: some View {
         let state = StepsState(data: ["First", "Second", "Third"])
-        return Separator(index: 0, step: Step(title: "First"), state: state).environmentObject(Config())
+        return Separator(step: Step(title: "First"), state: state).environmentObject(Config())
     }
 }
 #endif

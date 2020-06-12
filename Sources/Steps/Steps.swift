@@ -33,12 +33,14 @@ public struct Steps<Element>: View {
     ///   - index: index of the step
     private func renderIndex(_ index: Int) -> some View {
         let element = state.data[index]
-        let step = onCreateStep(element)
+        var step = onCreateStep(element)
+        step.index = index
+        step.state = stateFor(step: step)
 
-        let first = Item(index: index, step: step, state: state)
+        let first = Item(step: step, state: state)
         var second: Separator<Element>?
         if (index < state.data.endIndex - 1) {
-            second = Separator(index: index, step: step, state: state)
+            second = Separator(step: step, state: state)
         }
         return ViewBuilder.buildBlock(first,second)
     }
@@ -67,7 +69,7 @@ public struct Steps<Element>: View {
 //}
 #endif
 
-// MARK: Mutable
+// MARK: Builders
 extension Steps {
     /// Adds space between each page
     ///
@@ -123,5 +125,18 @@ extension Steps {
     public func defaultImage(_ value: Image) -> Self {
         config.defaultImage = value
         return self
+    }
+}
+
+// MARK: Helpers
+extension Steps {
+    /// Get state for step at an index
+    func stateFor(step: Step) -> Step.State {
+        if (step.index < state.currentIndex) {
+            return .completed
+        } else if step.index == state.currentIndex {
+            return .current
+        }
+        return .uncompleted
     }
 }

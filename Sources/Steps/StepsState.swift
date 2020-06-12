@@ -55,14 +55,4 @@ public class StepsState<Element>: ObservableObject {
         }
         currentIndex -= 1
     }
-
-    /// Get state for step at an index
-    func stepStateFor(index: Int) -> StepState {
-        if (index < currentIndex) {
-            return .completed
-        } else if index == currentIndex {
-            return .current
-        }
-        return .uncompleted
-    }
 }

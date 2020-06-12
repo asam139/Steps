@@ -12,9 +12,6 @@ import SwifterSwiftUI
 /// Item to represent each step
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 struct Item<Element>: View {
-    /// Index of this step
-    var index: Int
-
     /// Get step object for the set index
     var step: Step
 
@@ -38,19 +35,14 @@ struct Item<Element>: View {
         return config.itemSpacing * 2
     }
 
-    /// Get current step state  for the set index
-    private var stepState: StepState {
-        return state.stepStateFor(index: index)
-    }
-
     /// Get image for the current step
     private var image: Image? {
-        return stepState != .completed ? step.image : config.defaultImage
+        return step.state != .completed ? step.image : config.defaultImage
     }
 
     /// Get foreground color for the current step
     private var foregroundColor: Color {
-        switch stepState {
+        switch step.state {
         case .uncompleted:
             return config.disabledColor
         default:
@@ -69,9 +61,9 @@ struct Item<Element>: View {
         if ((previousIndex == state.data.endIndex && diff > 0) ||
             (nextIndex == state.data.endIndex && diff < 0)) {
             offset = 0
-        } else if (previousIndex == index) {
+        } else if (previousIndex == step.index) {
             offset = CGFloat(diff) * maxOffset
-        } else if(nextIndex == index) {
+        } else if(nextIndex == step.index) {
             offset = -CGFloat(diff) * maxOffset
         } else {
             offset = 0
@@ -83,11 +75,11 @@ struct Item<Element>: View {
             ifLet(image, then: {
                 $0.resizable()
             }, else: {
-                Text("\(index + 1)").font(.system(size: config.size))
+                Text("\(step.index + 1)").font(.system(size: config.size))
             })
                 .frame(width: config.size, height: config.size)
                 .padding(config.figurePadding)
-                .if(index == state.currentIndex, then: {
+                .if(step.index == state.currentIndex, then: {
                     $0.background(config.primaryColor).foregroundColor(config.secondaryColor)
                 }, else: {
                     $0.overlay(
@@ -117,7 +109,7 @@ struct Item<Element>: View {
 struct Item_Previews: PreviewProvider {
     static var previews: some View {
         let state = StepsState(data: ["First", "Second", "Third"])
-        return Item(index: 0, step:Step(title: "First"), state: state)
+        return Item(step:Step(title: "First"), state: state)
     }
 }
 #endif

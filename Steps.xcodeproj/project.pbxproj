@@ -27,7 +27,6 @@
 		OBJ_152 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Helpers.swift */; };
 		OBJ_153 /* OffsetEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* OffsetEffect.swift */; };
 		OBJ_154 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Step.swift */; };
-		OBJ_155 /* StepState.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* StepState.swift */; };
 		OBJ_156 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Steps.swift */; };
 		OBJ_157 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Config.swift */; };
 		OBJ_158 /* StepsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* StepsState.swift */; };
@@ -212,7 +211,6 @@
 		OBJ_143 /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
 		OBJ_15 /* OffsetEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetEffect.swift; sourceTree = "<group>"; };
 		OBJ_16 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
-		OBJ_17 /* StepState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepState.swift; sourceTree = "<group>"; };
 		OBJ_18 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		OBJ_20 /* StepsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsState.swift; sourceTree = "<group>"; };
@@ -480,7 +478,7 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -501,7 +499,6 @@
 				OBJ_142 /* Gemfile */,
 				OBJ_143 /* Gemfile.lock */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_52 /* Modifiers */ = {
@@ -631,7 +628,6 @@
 				OBJ_9 /* Components */,
 				9CBD86892493E93C00022EDC /* Effects */,
 				OBJ_16 /* Step.swift */,
-				OBJ_17 /* StepState.swift */,
 				OBJ_18 /* Steps.swift */,
 				OBJ_19 /* Config.swift */,
 				OBJ_20 /* StepsState.swift */,
@@ -779,7 +775,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_127 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -807,7 +803,6 @@
 				OBJ_152 /* Helpers.swift in Sources */,
 				OBJ_153 /* OffsetEffect.swift in Sources */,
 				OBJ_154 /* Step.swift in Sources */,
-				OBJ_155 /* StepState.swift in Sources */,
 				OBJ_156 /* Steps.swift in Sources */,
 				OBJ_157 /* Config.swift in Sources */,
 				OBJ_158 /* StepsState.swift in Sources */,

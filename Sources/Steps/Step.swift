@@ -8,10 +8,29 @@
 import SwiftUI
 
 /// Represents a new step in the component
-public struct Step: Identifiable {
-    public var id = UUID()
+public struct Step {
+    /// Title
     public var title: String?
+    /// Image
     public var image: Image?
+
+    /// State in which can be found a step
+    enum State: Int, CaseIterable {
+        /// State for uncompleted step
+        case uncompleted
+
+        /// State for the current step
+        case current
+
+        /// State for completed step
+        case completed
+    }
+
+    /// Index
+    var index: Int = 0
+
+    /// State
+    var state: State = .uncompleted
 
     /// Initializes a new step.
     ///
