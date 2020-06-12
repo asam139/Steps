@@ -9,29 +9,29 @@
 import SwiftUI
 import Steps
 
-struct BasketItem: Equatable {
+struct Item {
     var title: String
     var image: Image?
 }
 
 struct ContentView: View {
-    @ObservedObject private var stepsState: StepsState<BasketItem>
+    @ObservedObject private var stepsState: StepsState<Item>
 
     @State var color = Color.red
 
     init() {
         let items = [
-            BasketItem(title: "First_", image: Image(systemName: "wind")),
-            BasketItem(title: ""),
-            BasketItem(title: "Second__", image: Image(systemName: "tornado")),
-            BasketItem(title: ""),
-            BasketItem(title: "Fifth_____", image: Image(systemName: "hurricane"))
+            Item(title: "First_", image: Image(systemName: "wind")),
+            Item(title: ""),
+            Item(title: "Second__", image: Image(systemName: "tornado")),
+            Item(title: ""),
+            Item(title: "Fifth_____", image: Image(systemName: "hurricane"))
         ]
         stepsState = StepsState(data: items)
     }
 
-    func onCreateStep(_ basketItem: BasketItem) -> Step {
-        return Step(title: basketItem.title, image: basketItem.image)
+    func onCreateStep(_ item: Item) -> Step {
+        return Step(title: item.title, image: item.image)
     }
 
     var body: some View {
