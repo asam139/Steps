@@ -11,9 +11,6 @@ import Combine
 /// Object to manage the config of the main component
 public class StepsConfig: ObservableObject {
 
-    /// Spacing between elements
-    public var spacing: CGFloat = 5
-
     /// Size of each step
     public var size: CGFloat = 14
 

@@ -1,10 +1,14 @@
 import SwiftUI
 import Combine
+import SwifterSwiftUI
 
 /// 🏄‍♂️ A navigation bar that guides users through the steps of a task.
 public struct Steps: View {
     /// The main state of the component
     @ObservedObject public private(set) var state: StepsState
+
+    /// Spacing between elements
+    var itemSpacing: CGFloat = 5
 
     /// The style of the component
     public private(set) var config: StepsConfig
@@ -28,6 +32,7 @@ public struct Steps: View {
     ///   - index: index of the step
     private func makeStepAt(index: Int) -> some View {
         return StepElement(index: index, state: state)
+            .maxOffset(itemSpacing * 2)
     }
 
     /// Initializes a new step element.
@@ -39,7 +44,7 @@ public struct Steps: View {
     }
 
     public var body: some View {
-        HStack(alignment: .top, spacing: config.spacing) {
+        HStack(alignment: .top, spacing: itemSpacing) {
             ForEach(state.steps.indices) { index in
                 self.makeStepAt(index: index)
                 if (index < self.state.steps.endIndex - 1) {
@@ -63,3 +68,13 @@ struct Steps_Previews: PreviewProvider {
     }
 }
 #endif
+
+// MARK: Mutable
+extension Steps: Mutable {
+    /// Adds space between each page
+    ///
+    /// - Parameter value: spacing between elements
+    public func itemSpacing(_ value: CGFloat) -> Self {
+        mutating(keyPath: \.itemSpacing, value: value)
+    }
+}

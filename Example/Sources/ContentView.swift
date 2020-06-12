@@ -28,8 +28,10 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 12) {
             Steps(state: stepsState, config: config)
+                .itemSpacing(5)
                 .font(.caption)
                 .padding()
+
             Button(action: {
                 self.stepsState.nextStep()
             }) {
