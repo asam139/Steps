@@ -14,14 +14,13 @@ extension Item: Inspectable { }
 
 final class ItemTests: XCTestCase {
     let config = Config()
-    let steps = [Step(), Step()]
+    let data = ["First", "Second"]
     lazy var state: StepsState = {
-        return StepsState(steps: steps)
+        return StepsState(data: data)
     }()
 
     func testItem() {
-        let container = Item(index: 1, state: state)
-        XCTAssertEqual(container.index, 1)
+        let container = Item(step: Step(), state: state)
 
         let exp = container.inspection.inspect { _ in
             self.state.nextStep() // 1

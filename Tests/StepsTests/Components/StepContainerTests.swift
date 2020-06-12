@@ -18,7 +18,7 @@ final class ContainerTests: XCTestCase {
     func testContainer() {
         let title = "Title"
 
-        let container = StepContainer(title: title) {
+        let container = Container(title: title) {
             Text(title)
         }
         XCTAssertEqual(container.title, title)

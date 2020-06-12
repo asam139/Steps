@@ -11,24 +11,26 @@ import ViewInspector
 @testable import Steps
 
 extension Steps: Inspectable { }
-extension TupleView : Inspectable where T == (Item, Separator?) {}
+extension TupleView : Inspectable where T == (Item<String>, Separator<String>?) {}
 
 final class StepsTests: XCTestCase {
     let config = Config()
-    let steps = [Step(), Step()]
+   let data = ["First", "Second"]
     lazy var state: StepsState = {
-        return StepsState(steps: steps)
+        return StepsState(data: data)
     }()
 
     func testSteps() {
-        let container = Steps(state: state, config: config)
+        let container = Steps(state: state, onCreateStep: { string in
+            Step(title: string)
+        })
         let exp = container.inspection.inspect { view in
-            let count = try view.actualView().state.steps.count
+            let count = try view.actualView().state.data.count
             for i in 0...count+1 {
                 if (i < count) {
-                    XCTAssertNoThrow(try view.hStack().forEach(0).view(TupleView<(Item, Separator?)>.self, i))
+                    XCTAssertNoThrow(try view.hStack().forEach(0).view(TupleView<(Item<String>, Separator<String>?)>.self, i))
                 } else {
-                    XCTAssertThrowsError(try view.hStack().forEach(0).view(TupleView<(Item, Separator?)>.self, i))
+                    XCTAssertThrowsError(try view.hStack().forEach(0).view(TupleView<(Item<String>, Separator<String>?)>.self, i))
                 }
             }
         }
