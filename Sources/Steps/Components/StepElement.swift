@@ -20,9 +20,6 @@ struct StepElement: View {
     /// The style of the component
     @EnvironmentObject var config: StepsConfig
 
-    /// Max diff offset to be animated
-    var maxOffset: CGFloat = 10
-
     /// Helper to inspect
     let inspection = Inspection<Self>()
 
@@ -31,6 +28,11 @@ struct StepElement: View {
 
     /// Current offset to be animated
     @State private var offset: CGFloat = 0
+
+    /// Max diff offset to be animated
+    private var maxOffset: CGFloat {
+        return config.itemSpacing * 2
+    }
 
     /// Get current step state  for the set index
     private var stepState: StepState {
@@ -44,7 +46,7 @@ struct StepElement: View {
 
     /// Get image for the current step
     private var image: Image? {
-        return stepState != .completed ? step.image : config.image
+        return stepState != .completed ? step.image : config.defaultImage
     }
 
     /// Get foreground color for the current step
@@ -121,12 +123,3 @@ struct StepElement_Previews: PreviewProvider {
     }
 }
 #endif
-
-extension StepElement: Mutable {
-    /// Modify the max offset during animation
-    ///
-    /// - Parameter value: max offset during animation
-    func maxOffset(_ value: CGFloat) -> Self {
-        mutating(keyPath: \.maxOffset, value: value)
-    }
-}

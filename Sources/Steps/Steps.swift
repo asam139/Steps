@@ -7,11 +7,8 @@ public struct Steps: View {
     /// The main state of the component
     @ObservedObject public private(set) var state: StepsState
 
-    /// Spacing between elements
-    var itemSpacing: CGFloat = 5
-
     /// The style of the component
-    public private(set) var config: StepsConfig
+    private var config = StepsConfig()
 
     /// Helper to inspect
     let inspection = Inspection<Self>()
@@ -21,9 +18,8 @@ public struct Steps: View {
     /// - Parameters:
     ///   - state: Initial state.
     ///   - config: Initial config.
-    public init(state: StepsState, config: StepsConfig = StepsConfig()) {
+    public init(state: StepsState) {
         self.state = state
-        self.config = config
     }
 
     /// Initializes a new step element.
@@ -32,7 +28,6 @@ public struct Steps: View {
     ///   - index: index of the step
     private func makeStepAt(index: Int) -> some View {
         return StepElement(index: index, state: state)
-            .maxOffset(itemSpacing * 2)
     }
 
     /// Initializes a new step element.
@@ -44,7 +39,7 @@ public struct Steps: View {
     }
 
     public var body: some View {
-        HStack(alignment: .top, spacing: itemSpacing) {
+        HStack(alignment: .top, spacing: config.itemSpacing) {
             ForEach(state.steps.indices) { index in
                 self.makeStepAt(index: index)
                 if (index < self.state.steps.endIndex - 1) {
@@ -70,11 +65,60 @@ struct Steps_Previews: PreviewProvider {
 #endif
 
 // MARK: Mutable
-extension Steps: Mutable {
+extension Steps {
     /// Adds space between each page
     ///
-    /// - Parameter value: spacing between elements
+    /// - Parameter value: Spacing between elements
     public func itemSpacing(_ value: CGFloat) -> Self {
-        mutating(keyPath: \.itemSpacing, value: value)
+        config.itemSpacing = value
+        return self
+    }
+
+    /// Modify size of each step element
+    ///
+    /// - Parameter value: Size of each step element
+    public func size(_ value: CGFloat) -> Self {
+        config.size = value
+        return self
+    }
+
+    /// Modify the line thickness of all elements
+    ///
+    /// - Parameter value: Line thickness of all elements
+    public func lineThickness(_ value: CGFloat) -> Self {
+        config.lineThickness = value
+        return self
+    }
+
+    /// Modify color for current and completed steps
+    ///
+    /// - Parameter value: Color for current and completed steps
+    public func primaryColor(_ value: Color) -> Self {
+        config.primaryColor = value
+        return self
+    }
+
+    /// Modify color for text inside step element
+    ///
+    /// - Parameter value: Color for text inside step element
+    public func secondaryColor(_ value: Color) -> Self {
+        config.secondaryColor = value
+        return self
+    }
+
+    /// Modify color for text inside step element
+    ///
+    /// - Parameter value: Color for uncompleted steps
+    public func disabledColor(_ value: Color) -> Self {
+        config.disabledColor = value
+        return self
+    }
+
+    /// Modify color for text inside step element
+    ///
+    /// - Parameter value: Color for uncompleted steps
+    public func defaultImage(_ value: Image) -> Self {
+        config.defaultImage = value
+        return self
     }
 }

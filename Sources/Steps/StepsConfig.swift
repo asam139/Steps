@@ -9,28 +9,32 @@ import SwiftUI
 import Combine
 
 /// Object to manage the config of the main component
-public class StepsConfig: ObservableObject {
+@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+class StepsConfig: ObservableObject {
+
+    /// Spacing between elements
+    @Published var itemSpacing: CGFloat = 5
 
     /// Size of each step
-    public var size: CGFloat = 14
+    @Published var size: CGFloat = 14
 
     /// Line thickness for all lines in the component
-    public var lineThickness: CGFloat = 2
+    @Published var lineThickness: CGFloat = 2
 
     /// Color for current and completed steps
-    public var primaryColor: Color = Color.blue
+    @Published var primaryColor: Color = Color.blue
 
     /// Color for text inside step element
-    public var secondaryColor: Color = Color.white
+    @Published var secondaryColor: Color = Color.white
 
     /// Color for uncompleted steps
-    public var disabledColor: Color = Color.gray
+    @Published var disabledColor: Color = Color.gray
 
     /// Default image for completed steps
     #if os(iOS) || os(watchOS) || os(tvOS)
-    public var image: Image? = Image(systemName: "checkmark")
+    @Published public var defaultImage: Image? = Image(systemName: "checkmark")
     #elseif os(OSX)
-    public var image: Image?
+    @Published public var defaultImage: Image?
     #endif
 
     /// Padding to adjust subviews
