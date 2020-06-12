@@ -17,7 +17,7 @@ The changelog for **Steps**. Also see the [releases](https://github.com/asam139/
 ### Security
 
 ---
-## [v0.3.3](https://github.com/asam139/Steps/releases/tag/0.3.3)
+## [v0.3.4](https://github.com/asam139/Steps/releases/tag/0.3.4)
 ### Change
 - Implement component following the builder pattern.
 

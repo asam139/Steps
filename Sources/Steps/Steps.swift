@@ -36,10 +36,10 @@ public struct Steps<Element>: View {
         step.index = index
         step.state = stateFor(step: step)
 
-        let first = Item(step: step, state: state)
+        let first = Item<Element>(step: step)
         var second: Separator<Element>?
         if (index < state.data.endIndex - 1) {
-            second = Separator(step: step, state: state)
+            second = Separator(step: step)
         }
         return ViewBuilder.buildBlock(first,second)
     }
@@ -50,6 +50,7 @@ public struct Steps<Element>: View {
                 self.renderIndex(index)
             }
         }
+        .environmentObject(state)
         .environmentObject(config)
         .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }

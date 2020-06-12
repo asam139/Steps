@@ -16,7 +16,7 @@ struct Item<Element>: View {
     var step: Step
 
     /// The main state
-    @ObservedObject private(set) var state: StepsState<Element>
+    @EnvironmentObject var state: StepsState<Element>
 
     /// The style of the component
     @EnvironmentObject var config: Config

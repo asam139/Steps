@@ -20,7 +20,7 @@ final class SeparatorTests: XCTestCase {
     }()
 
     func testSeparator() {
-        let container = Separator(step: Step(), state: state)
+        let container = Separator<String>(step: Step())
 
         let exp = container.inspection.inspect { _ in
             self.state.nextStep() // 1
@@ -35,7 +35,10 @@ final class SeparatorTests: XCTestCase {
             self.state.previousStep() // 1
             self.state.previousStep() // 0
         }
-        ViewHosting.host(view: container.environmentObject(config))
+        ViewHosting.host(view: container
+            .environmentObject(state)
+            .environmentObject(config)
+        )
         wait(for: [exp, exp2, exp3], timeout: 5)
     }
 }

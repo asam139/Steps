@@ -20,7 +20,7 @@ final class ItemTests: XCTestCase {
     }()
 
     func testItem() {
-        let container = Item(step: Step(), state: state)
+        let container = Item<String>(step: Step())
 
         let exp = container.inspection.inspect { _ in
             self.state.nextStep() // 1
@@ -41,7 +41,10 @@ final class ItemTests: XCTestCase {
             self.state.nextStep() // 2
             self.state.nextStep() // 3
         }
-        ViewHosting.host(view: container.environmentObject(config))
+        ViewHosting.host(view: container
+            .environmentObject(state)
+            .environmentObject(config)
+        )
         wait(for: [exp, exp2, exp3, exp4], timeout: 5)
     }
 }

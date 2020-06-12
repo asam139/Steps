@@ -15,7 +15,7 @@ extension TupleView : Inspectable where T == (Item<String>, Separator<String>?) 
 
 final class StepsTests: XCTestCase {
     let config = Config()
-   let data = ["First", "Second"]
+    let data = ["First", "Second"]
     lazy var state: StepsState = {
         return StepsState(data: data)
     }()

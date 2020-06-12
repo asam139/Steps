@@ -16,13 +16,10 @@ struct Separator<Element>: View {
     var step: Step
 
     /// The main state
-    @ObservedObject private(set) var state: StepsState<Element>
+    @EnvironmentObject var state: StepsState<Element>
 
     /// The style of the component
     @EnvironmentObject var config: Config
-
-    /// Helper to inspect
-    let inspection = Inspection<Self>()
 
     /// Previous index
     @State private var previousIndex: Int = 0
@@ -32,6 +29,9 @@ struct Separator<Element>: View {
 
     /// Min scale in the axis X
     private let minScaleX: CGFloat = 0.25
+
+    /// Helper to inspect
+    let inspection = Inspection<Self>()
 
     /// Get foreground color for the current step
     private var foregroundColor: Color {
