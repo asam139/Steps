@@ -3,9 +3,13 @@ import Combine
 import SwifterSwiftUI
 
 /// 🏄‍♂️ A navigation bar that guides users through the steps of a task.
-public struct Steps: View {
+public struct Steps<Element>: View {
+
     /// The main state of the component
-    @ObservedObject public private(set) var state: StepsState
+    @ObservedObject private(set) var state: StepsState<Element>
+
+    /// Block to create each step
+    let onCreateStep: (Element) -> Step
 
     /// The style of the component
     private var config = Config()
@@ -13,38 +17,37 @@ public struct Steps: View {
     /// Helper to inspect
     let inspection = Inspection<Self>()
 
-    /// Initializes a new steps component with the initial state and config.
+    /// Initializes a new `Steps`.
     ///
-    /// - Parameters:
-    ///   - state: Initial state.
-    ///   - config: Initial config.
-    public init(state: StepsState) {
+    /// - Parameter data: Array of items to populate the content
+    /// - Parameter id: KeyPath to identifiable property
+    /// - Parameter onCreateStep: Block to create each step
+    public init(state: StepsState<Element>, onCreateStep: @escaping (Element) -> Step) {
         self.state = state
-    }
-
-    /// Initializes a new item.
-    ///
-    /// - Parameters:
-    ///   - index: index of the step
-    private func makeStepAt(index: Int) -> some View {
-        return Item(index: index, state: state)
+        self.onCreateStep = onCreateStep
     }
 
     /// Initializes a new separator
     ///
     /// - Parameters:
     ///   - index: index of the step
-    private func makeSeparatorAt(index: Int) -> some View {
-        return Separator(index: index, state: state)
+    private func renderIndex(_ index: Int) -> some View {
+        let element = state.data[index]
+        let step = onCreateStep(element)
+
+        let first = Item(index: index, step: step, state: state)
+        var second: Separator<Element>?
+        if (index < state.data.endIndex - 1) {
+            second = Separator(index: index, step: step, state: state)
+        }
+        return ViewBuilder.buildBlock(first,second)
     }
 
+    //let step = self.onCreateStep(element)
     public var body: some View {
         HStack(alignment: .top, spacing: config.itemSpacing) {
-            ForEach(state.steps.indices) { index in
-                self.makeStepAt(index: index)
-                if (index < self.state.steps.endIndex - 1) {
-                    self.makeSeparatorAt(index: index)
-                }
+            ForEach(state.data.indices) { index in
+                self.renderIndex(index)
             }
         }
         .environmentObject(config)
@@ -53,15 +56,15 @@ public struct Steps: View {
 }
 
 #if DEBUG
-struct Steps_Previews: PreviewProvider {
-    static var previews: some View {
-        let steps = [Step(title: "First"), Step(), Step()]
-        let state = StepsState(steps: steps)
-        return (
-            Steps(state: state).padding()
-        )
-    }
-}
+//struct Steps_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let steps = [Step(title: "First"), Step(), Step()]
+//        let state = StepsState(steps: steps)
+//        return (
+//            Steps(state: state).padding()
+//        )
+//    }
+//}
 #endif
 
 // MARK: Mutable

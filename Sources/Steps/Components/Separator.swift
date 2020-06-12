@@ -11,12 +11,16 @@ import SwifterSwiftUI
 
 /// Item to represent each separator between steps
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-struct Separator: View {
+struct Separator<Element>: View {
+
     /// Index of this step
-    private(set) var index: Int
+    var index: Int
+
+    /// Get step object for the set index
+    var step: Step
 
     /// The main state
-    @ObservedObject private(set) var state: StepsState
+    @ObservedObject private(set) var state: StepsState<Element>
 
     /// The style of the component
     @EnvironmentObject var config: Config
@@ -64,6 +68,7 @@ struct Separator: View {
         } else {
             scaleX = 1
         }
+
     }
 
     var body: some View {
@@ -91,9 +96,8 @@ struct Separator: View {
 #if DEBUG
 struct Separator_Previews: PreviewProvider {
     static var previews: some View {
-        let steps = [Step(title: "First"), Step(), Step()]
-        let state = StepsState(steps: steps)
-        return Separator(index: 0, state: state).environmentObject(Config())
+        let state = StepsState(data: ["First", "Second", "Third"])
+        return Separator(index: 0, step: Step(title: "First"), state: state).environmentObject(Config())
     }
 }
 #endif

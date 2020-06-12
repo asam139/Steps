@@ -7,9 +7,9 @@
 
 import Combine
 
-public class StepsState: ObservableObject {
-    /// Array of all steps
-    public let steps: [Step]
+public class StepsState<Element>: ObservableObject {
+    /// Array of items that will populate each page
+    var data: [Element]
 
     /// Indicate the current step
     @Published public private(set) var currentIndex: Int = 0
@@ -27,21 +27,22 @@ public class StepsState: ObservableObject {
     ///
     /// - Parameters:
     ///   - steps: array of all steps
-    public init(steps: [Step], initialStep: Int = 0) {
-        self.steps = steps
-        if (initialStep >= steps.startIndex && initialStep <= steps.endIndex) {
+    public init(data: [Element], initialStep: Int = 0) {
+        self.data = data
+
+        if (initialStep >= data.startIndex && initialStep <= data.endIndex) {
             currentIndex = initialStep
         }
 
         cancellable = $currentIndex.sink { (index) in
-            self.hasNext = index < self.steps.endIndex
-            self.hasPrevious = index > self.steps.startIndex
+            self.hasNext = index < self.data.endIndex
+            self.hasPrevious = index > self.data.startIndex
         }
     }
 
     /// Move to the next step
     public func nextStep() {
-        if (currentIndex > steps.endIndex) {
+        if (currentIndex > data.endIndex) {
             return
         }
         currentIndex += 1
@@ -49,7 +50,7 @@ public class StepsState: ObservableObject {
 
     /// Move to the previous step
     public func previousStep() {
-        if (currentIndex == steps.startIndex) {
+        if (currentIndex == data.startIndex) {
             return
         }
         currentIndex -= 1
@@ -63,10 +64,5 @@ public class StepsState: ObservableObject {
             return .current
         }
         return .uncompleted
-    }
-
-    /// Get step in an index
-    func stepAtIndex(index: Int) -> Step {
-        return steps[index]
     }
 }
