@@ -29,7 +29,7 @@
 		OBJ_154 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Step.swift */; };
 		OBJ_155 /* StepState.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* StepState.swift */; };
 		OBJ_156 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Steps.swift */; };
-		OBJ_157 /* StepsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* StepsConfig.swift */; };
+		OBJ_157 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Config.swift */; };
 		OBJ_158 /* StepsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* StepsState.swift */; };
 		OBJ_160 /* SwifterSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwifterSwiftUI::SwifterSwiftUI::Product" /* SwifterSwiftUI.framework */; };
 		OBJ_168 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
@@ -214,7 +214,7 @@
 		OBJ_16 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		OBJ_17 /* StepState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepState.swift; sourceTree = "<group>"; };
 		OBJ_18 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
-		OBJ_19 /* StepsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsConfig.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		OBJ_20 /* StepsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsState.swift; sourceTree = "<group>"; };
 		OBJ_23 /* OffsetEffectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetEffectTests.swift; sourceTree = "<group>"; };
 		OBJ_24 /* StepContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepContainerTests.swift; sourceTree = "<group>"; };
@@ -633,7 +633,7 @@
 				OBJ_16 /* Step.swift */,
 				OBJ_17 /* StepState.swift */,
 				OBJ_18 /* Steps.swift */,
-				OBJ_19 /* StepsConfig.swift */,
+				OBJ_19 /* Config.swift */,
 				OBJ_20 /* StepsState.swift */,
 			);
 			name = Steps;
@@ -809,7 +809,7 @@
 				OBJ_154 /* Step.swift in Sources */,
 				OBJ_155 /* StepState.swift in Sources */,
 				OBJ_156 /* Steps.swift in Sources */,
-				OBJ_157 /* StepsConfig.swift in Sources */,
+				OBJ_157 /* Config.swift in Sources */,
 				OBJ_158 /* StepsState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
