@@ -12,7 +12,7 @@ public struct Steps<Element>: View {
     let onCreateStep: (Element) -> Step
 
     /// The style of the component
-    private var config = Config()
+    let config = Config()
 
     /// Helper to inspect
     let inspection = Inspection<Self>()

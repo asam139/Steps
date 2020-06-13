@@ -22,7 +22,7 @@ final class StepsTests: XCTestCase {
 
     func testSteps() {
         let container = Steps(state: state, onCreateStep: { string in
-            Step(title: string)
+            Step(title: string, image: Image(""))
         })
         let exp = container.inspection.inspect { view in
             let count = try view.actualView().state.data.count
@@ -36,5 +36,33 @@ final class StepsTests: XCTestCase {
         }
         ViewHosting.host(view: container.environmentObject(config))
         wait(for: [exp], timeout: 0.1)
+    }
+
+    func testBuilders() {
+        let itemSpacing: CGFloat = 10.0
+        let size: CGFloat = 15.0
+        let lineThickness: CGFloat = 2.0
+        let primaryColor = Color.red
+        let secondaryColor = Color.yellow
+        let disabledColor = Color.gray
+        let defaultImage = Image("")
+
+
+        let container = Steps(state: state, onCreateStep: { string in Step(title: string)})
+            .itemSpacing(itemSpacing)
+            .size(size)
+            .lineThickness(lineThickness)
+            .primaryColor(primaryColor)
+            .secondaryColor(secondaryColor)
+            .disabledColor(disabledColor)
+            .defaultImage(defaultImage)
+
+        XCTAssertEqual(container.config.itemSpacing, itemSpacing)
+        XCTAssertEqual(container.config.size, size)
+        XCTAssertEqual(container.config.lineThickness, lineThickness)
+        XCTAssertEqual(container.config.primaryColor, primaryColor)
+        XCTAssertEqual(container.config.secondaryColor, secondaryColor)
+        XCTAssertEqual(container.config.disabledColor, disabledColor)
+        XCTAssertEqual(container.config.defaultImage, defaultImage)
     }
 }
