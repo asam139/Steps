@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		9C2000E7249553EB0066C150 /* ScaleXEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2000E6249553EB0066C150 /* ScaleXEffect.swift */; };
 		OBJ_149 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Container.swift */; };
 		OBJ_150 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Item.swift */; };
 		OBJ_151 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Separator.swift */; };
@@ -166,6 +167,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C2000E6249553EB0066C150 /* ScaleXEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleXEffect.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		OBJ_100 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		OBJ_101 /* ModifiedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifiedContent.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_15 /* OffsetEffect.swift */,
+				9C2000E6249553EB0066C150 /* ScaleXEffect.swift */,
 			);
 			path = Effects;
 			sourceTree = "<group>";
@@ -797,6 +800,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				9C2000E7249553EB0066C150 /* ScaleXEffect.swift in Sources */,
 				OBJ_149 /* Container.swift in Sources */,
 				OBJ_150 /* Item.swift in Sources */,
 				OBJ_151 /* Separator.swift in Sources */,

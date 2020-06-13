@@ -70,6 +70,12 @@ struct Item<Element>: View {
         }
     }
 
+    private func onCompletionEffect() {
+        if self.offset != 0 {
+            offset = 0
+        }
+    }
+
     var body: some View {
         Container(title: step.title) {
             ifLet(image, then: {
@@ -89,18 +95,18 @@ struct Item<Element>: View {
                 .cornerRadius(config.size)
         }
         .foregroundColor(foregroundColor)
-        .modifier(OffsetEffect(offset: offset, pct: abs(offset) > 0 ? 1 : 0))
-        .animation(config.animation)
-        .onReceive(state.$currentIndex, perform: { (nextIndex) in
-            self.updateOffset(nextIndex: nextIndex)
-            let previousOffset = self.offset
-            DispatchQueue.main.asyncAfter(deadline: .now() + self.config.animationDuration) {
-                if (self.offset != 0 && previousOffset == self.offset) {
-                    self.offset = 0
-                }
-            }
-            self.previousIndex = nextIndex
-        })
+        .modifier(
+            OffsetEffect(
+                offset: offset,
+                pct: abs(offset) > 0 ? 1 : 0,
+                onCompletion: onCompletionEffect
+            )
+        )
+            .animation(config.animation)
+            .onReceive(state.$currentIndex, perform: { (nextIndex) in
+                self.updateOffset(nextIndex: nextIndex)
+                self.previousIndex = nextIndex
+            })
             .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }

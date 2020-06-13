@@ -42,12 +42,9 @@ class Config: ObservableObject {
         return size * 0.5
     }
 
-    /// Default animation duration
-    let animationDuration: TimeInterval = 0.55
-
     /// Default animation
     var animation: Animation {
-        return Animation.spring(response: animationDuration, dampingFraction: 0.45, blendDuration: 0)
+        return Animation.spring(response: 0.5, dampingFraction: 0.95, blendDuration: 0)
     }
 
     /// Initializes a new config.

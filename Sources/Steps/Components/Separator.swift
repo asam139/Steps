@@ -59,27 +59,31 @@ struct Separator<Element>: View {
         } else {
             scaleX = 1
         }
+    }
 
+    private func onCompletionEffect() {
+        if self.scaleX != 1 {
+            scaleX = 1
+        }
     }
 
     var body: some View {
         Container {
             Rectangle()
                 .frame(height: config.lineThickness)
-                .scaleEffect(x: scaleX, y: 1, anchor: .center)
         }
         .foregroundColor(foregroundColor)
-        .animation(config.animation)
-        .onReceive(state.$currentIndex, perform: { (nextIndex) in
-            self.updateScale(nextIndex: nextIndex)
-            let previousScaleX = self.scaleX
-            DispatchQueue.main.asyncAfter(deadline: .now() + self.config.animationDuration) {
-                if (self.scaleX != 1 && previousScaleX == self.scaleX) {
-                    self.scaleX = 1
-                }
-            }
-            self.previousIndex = nextIndex
-        })
+        .modifier(
+            ScaleXEffect(
+                scaleX: scaleX,
+                onCompletion: onCompletionEffect
+            )
+        )
+            .animation(config.animation)
+            .onReceive(state.$currentIndex, perform: { (nextIndex) in
+                self.updateScale(nextIndex: nextIndex)
+                self.previousIndex = nextIndex
+            })
             .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
