@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		9C2000E7249553EB0066C150 /* ScaleXEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2000E6249553EB0066C150 /* ScaleXEffect.swift */; };
+		9C2000EA2495556F0066C150 /* ScaleXEffectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2000E8249555630066C150 /* ScaleXEffectTests.swift */; };
 		OBJ_149 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Container.swift */; };
 		OBJ_150 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Item.swift */; };
 		OBJ_151 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Separator.swift */; };
@@ -168,6 +169,7 @@
 
 /* Begin PBXFileReference section */
 		9C2000E6249553EB0066C150 /* ScaleXEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleXEffect.swift; sourceTree = "<group>"; };
+		9C2000E8249555630066C150 /* ScaleXEffectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleXEffectTests.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		OBJ_100 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		OBJ_101 /* ModifiedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifiedContent.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_23 /* OffsetEffectTests.swift */,
+				9C2000E8249555630066C150 /* ScaleXEffectTests.swift */,
 			);
 			path = Effects;
 			sourceTree = "<group>";
@@ -827,6 +830,7 @@
 			files = (
 				OBJ_179 /* OffsetEffectTests.swift in Sources */,
 				OBJ_180 /* StepContainerTests.swift in Sources */,
+				9C2000EA2495556F0066C150 /* ScaleXEffectTests.swift in Sources */,
 				OBJ_181 /* StepElementTests.swift in Sources */,
 				OBJ_182 /* StepSeparatorTests.swift in Sources */,
 				OBJ_183 /* StepTests.swift in Sources */,
