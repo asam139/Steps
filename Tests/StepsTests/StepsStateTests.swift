@@ -18,6 +18,8 @@ final class StepsStateTests: XCTestCase {
 
         let currentIndex = state.currentIndex
 
+        state.setStep(100)
+        XCTAssertEqual(state.currentIndex, currentIndex)
         state.setStep(currentIndex + 1)
         XCTAssertEqual(state.currentIndex, currentIndex + 1)
         state.setStep(currentIndex)
