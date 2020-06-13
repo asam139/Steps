@@ -47,7 +47,6 @@ final class StepsTests: XCTestCase {
         let disabledColor = Color.gray
         let defaultImage = Image("")
 
-
         let container = Steps(state: state, onCreateStep: { string in Step(title: string)})
             .itemSpacing(itemSpacing)
             .size(size)

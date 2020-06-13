@@ -40,6 +40,14 @@ public class StepsState<Element>: ObservableObject {
         }
     }
 
+    /// Change current step
+    public func setStep(_ index: Int) {
+        if (index < data.startIndex || index > data.endIndex + 1) {
+            return
+        }
+        currentIndex = index
+    }
+
     /// Move to the next step
     public func nextStep() {
         if (currentIndex > data.endIndex) {

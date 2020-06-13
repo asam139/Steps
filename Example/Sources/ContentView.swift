@@ -17,8 +17,6 @@ struct Item {
 struct ContentView: View {
     @ObservedObject private var stepsState: StepsState<Item>
 
-    @State var color = Color.red
-
     init() {
         let items = [
             Item(title: "First_", image: Image(systemName: "wind")),
@@ -38,13 +36,11 @@ struct ContentView: View {
         VStack(spacing: 12) {
             Steps(state: stepsState, onCreateStep:onCreateStep)
                 .itemSpacing(10)
-                .primaryColor(color)
                 .font(.caption)
                 .padding()
 
             Button(action: {
                 self.stepsState.nextStep()
-                self.color = .yellow
             }) {
                 Text("Next")
             }
