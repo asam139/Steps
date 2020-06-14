@@ -20,5 +20,5 @@ Steps is a navigation bar that guides users through the steps of a task. You nee
   s.source_files = 'Sources/Steps/**/*'
   
   s.frameworks = 'SwiftUI', 'Combine'
-  s.dependency 'SwifterSwiftUI', '~> 0.4.0'
+  s.dependency 'SwifterSwiftUI', '~> 0.5.0'
 end

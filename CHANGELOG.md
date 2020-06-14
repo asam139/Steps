@@ -17,7 +17,7 @@ The changelog for **Steps**. Also see the [releases](https://github.com/asam139/
 ### Security
 
 ---
-## [v0.3.5](https://github.com/asam139/Steps/releases/tag/0.3.5)
+## [v0.3.6](https://github.com/asam139/Steps/releases/tag/0.3.6)
 ### Fixed
 - Fix state for each step
 
