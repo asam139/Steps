@@ -1,6 +1,6 @@
 //
-//  StepContainer.swift
-//  curlyhair
+//  Container.swift
+//  Steps
 //
 //  Created by Saul Moreno Abril on 05/04/2020.
 //  Copyright © 2020 Saul Moreno Abril. All rights reserved.
@@ -10,9 +10,10 @@ import SwiftUI
 import SwifterSwiftUI
 
 /// Container for each subview of the bar
-struct StepContainer<Content> : View where Content : View {
+@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+struct Container<Content> : View where Content : View {
     /// The style of the component
-    @EnvironmentObject var config: StepsConfig
+    @EnvironmentObject var config: Config
 
     /// The title of the subcomponent
     var title: String?
@@ -50,9 +51,9 @@ struct StepContainer<Content> : View where Content : View {
 }
 
 #if DEBUG
-struct StepContainer_Previews: PreviewProvider {
+struct Container_Previews: PreviewProvider {
     static var previews: some View {
-        StepContainer {
+        Container {
             Text("Testing")
         }
     }

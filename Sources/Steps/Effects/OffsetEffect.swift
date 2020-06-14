@@ -8,7 +8,11 @@
 import SwiftUI
 
 // Custom offset effect to simulate acceleration deforming the view
+@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 struct OffsetEffect: GeometryEffect {
+
+    /// The initial offset of the effect
+    private(set) var initialOffset: CGFloat
 
     /// The offset of the effect
     private(set) var offset: CGFloat
@@ -22,19 +26,33 @@ struct OffsetEffect: GeometryEffect {
     /// The difference the offset in each update
     private var offsetDiff: CGFloat = 0
 
+    /// Block when animation is finished
+    private var onCompletion: (() -> Void)?
+
     /// Initializes a new offset effect
     ///
     /// - Parameters:
     ///   - offset: offset to be animated
     ///   - pct: percentage of the animation
     ///   - factor: factor to deform
-    init(offset: CGFloat, pct: CGFloat, factor: CGFloat = 0.1) {
+    ///   - onCompletion: completion block
+    init(offset: CGFloat, pct: CGFloat, factor: CGFloat = 0.1, onCompletion: (() -> Void)? = nil) {
+        self.initialOffset = offset
         self.offset = offset
         self.factor = factor
         if (pct >= 0.0 && pct <= 1.0) {
             self.pct = pct
         } else {
             self.pct = pct < 0.0 ? 0.0 : 1.0
+        }
+        self.onCompletion = onCompletion
+    }
+
+    func checkIfFinished() {
+        if let onCompletion = onCompletion, initialOffset == offset {
+            DispatchQueue.main.async {
+                onCompletion()
+            }
         }
     }
 
@@ -45,6 +63,8 @@ struct OffsetEffect: GeometryEffect {
 
             offset = newValue.first
             pct = newValue.second
+
+            checkIfFinished()
         }
     }
 

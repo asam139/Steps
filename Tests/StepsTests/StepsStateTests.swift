@@ -11,20 +11,27 @@ import ViewInspector
 @testable import Steps
 
 final class StepsStateTests: XCTestCase {
-    let steps = [Step(), Step()]
+    let data = ["First", "Second"]
 
     func testStepsTests() {
-        let state = StepsState(steps: steps)
+        let state = StepsState(data: data)
 
         let currentIndex = state.currentIndex
+
+        state.setStep(100)
+        XCTAssertEqual(state.currentIndex, currentIndex)
+        state.setStep(currentIndex + 1)
+        XCTAssertEqual(state.currentIndex, currentIndex + 1)
+        state.setStep(currentIndex)
+
         state.nextStep()
         XCTAssertEqual(state.currentIndex, currentIndex + 1)
         state.nextStep()
         XCTAssertEqual(state.currentIndex, currentIndex + 2)
         state.nextStep()
-        XCTAssertEqual(state.currentIndex, steps.endIndex + 1)
+        XCTAssertEqual(state.currentIndex, data.endIndex + 1)
         state.nextStep()
-        XCTAssertEqual(state.currentIndex, steps.endIndex + 1)
+        XCTAssertEqual(state.currentIndex, data.endIndex + 1)
         XCTAssertFalse(state.hasNext)
 
         state.previousStep()

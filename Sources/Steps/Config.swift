@@ -1,5 +1,5 @@
 //
-//  StepsConfig.swift
+//  Config.swift
 //
 //
 //  Created by Saul Moreno Abril on 11/04/2020.
@@ -9,31 +9,32 @@ import SwiftUI
 import Combine
 
 /// Object to manage the config of the main component
-public class StepsConfig: ObservableObject {
+@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+class Config: ObservableObject {
 
     /// Spacing between elements
-    public var spacing: CGFloat = 5
+    @Published var itemSpacing: CGFloat = 5
 
     /// Size of each step
-    public var size: CGFloat = 14
+    @Published var size: CGFloat = 14
 
     /// Line thickness for all lines in the component
-    public var lineThickness: CGFloat = 2
+    @Published var lineThickness: CGFloat = 2
 
     /// Color for current and completed steps
-    public var primaryColor: Color = Color.blue
+    @Published var primaryColor: Color = Color.blue
 
     /// Color for text inside step element
-    public var secondaryColor: Color = Color.white
+    @Published var secondaryColor: Color = Color.white
 
     /// Color for uncompleted steps
-    public var disabledColor: Color = Color.gray
+    @Published var disabledColor: Color = Color.gray
 
     /// Default image for completed steps
     #if os(iOS) || os(watchOS) || os(tvOS)
-    public var image: Image? = Image(systemName: "checkmark")
+    @Published public var defaultImage: Image? = Image(systemName: "checkmark")
     #elseif os(OSX)
-    public var image: Image?
+    @Published public var defaultImage: Image?
     #endif
 
     /// Padding to adjust subviews
@@ -41,12 +42,9 @@ public class StepsConfig: ObservableObject {
         return size * 0.5
     }
 
-    /// Default animation duration
-    let animationDuration: TimeInterval = 0.55
-
     /// Default animation
     var animation: Animation {
-        return Animation.spring(response: animationDuration, dampingFraction: 0.45, blendDuration: 0)
+        return Animation.spring(response: 0.5, dampingFraction: 0.95, blendDuration: 0)
     }
 
     /// Initializes a new config.

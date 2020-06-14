@@ -9,27 +9,36 @@
 import SwiftUI
 import Steps
 
+struct Item {
+    var title: String
+    var image: Image?
+}
+
 struct ContentView: View {
-    @ObservedObject private var stepsState: StepsState
-    private var config: StepsConfig
+    @ObservedObject private var stepsState: StepsState<Item>
 
     init() {
-        let steps = [
-            Step(title: "First_", image: Image(systemName: "wind")),
-            Step(),
-            Step(title: "Second__", image: Image(systemName: "tornado")),
-            Step(),
-            Step(title: "Fifth_____", image: Image(systemName: "hurricane"))
+        let items = [
+            Item(title: "First_", image: Image(systemName: "wind")),
+            Item(title: ""),
+            Item(title: "Second__", image: Image(systemName: "tornado")),
+            Item(title: ""),
+            Item(title: "Fifth_____", image: Image(systemName: "hurricane"))
         ]
-        stepsState = StepsState(steps: steps, initialStep: 1)
-        config = StepsConfig()
+        stepsState = StepsState(data: items)
+    }
+
+    func onCreateStep(_ item: Item) -> Step {
+        return Step(title: item.title, image: item.image)
     }
 
     var body: some View {
         VStack(spacing: 12) {
-            Steps(state: stepsState, config: config)
+            Steps(state: stepsState, onCreateStep:onCreateStep)
+                .itemSpacing(10)
                 .font(.caption)
                 .padding()
+
             Button(action: {
                 self.stepsState.nextStep()
             }) {
