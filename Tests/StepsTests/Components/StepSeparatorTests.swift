@@ -20,7 +20,7 @@ final class SeparatorTests: XCTestCase {
     }()
 
     let delay = 0.5
-    
+
     func testSeparator() {
         let container = Separator<String>(step: Step())
 
