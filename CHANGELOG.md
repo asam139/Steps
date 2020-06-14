@@ -18,8 +18,11 @@ The changelog for **Steps**. Also see the [releases](https://github.com/asam139/
 
 ---
 ## [v0.3.4](https://github.com/asam139/Steps/releases/tag/0.3.4)
+### Added
+- New method to change the current step.
 ### Change
 - Implement component following the builder pattern.
+- Improve animations.
 
 ## [v0.3.3](https://github.com/asam139/Steps/releases/tag/0.3.3)
 ### Fixed
