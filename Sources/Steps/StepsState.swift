@@ -64,3 +64,16 @@ public class StepsState<Element>: ObservableObject {
         currentIndex -= 1
     }
 }
+
+// MARK: Helpers
+extension StepsState {
+    /// Get state for step at an index
+    func stateFor(step: Step) -> Step.State {
+        if (step.index < currentIndex) {
+            return .completed
+        } else if step.index == currentIndex {
+            return .current
+        }
+        return .uncompleted
+    }
+}

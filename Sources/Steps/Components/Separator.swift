@@ -33,9 +33,13 @@ struct Separator<Element>: View {
     /// Helper to inspect
     let inspection = Inspection<Self>()
 
+    private var stepState: Step.State {
+        return state.stateFor(step: step)
+    }
+
     /// Get foreground color for the current step
     private var foregroundColor: Color {
-        switch step.state {
+        switch stepState {
         case .uncompleted,
              .current:
             return config.disabledColor

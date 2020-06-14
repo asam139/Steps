@@ -34,7 +34,6 @@ public struct Steps<Element>: View {
         let element = state.data[index]
         var step = onCreateStep(element)
         step.index = index
-        step.state = stateFor(step: step)
 
         let first = Item<Element>(step: step)
         var second: Separator<Element>?
@@ -126,18 +125,5 @@ extension Steps {
     public func defaultImage(_ value: Image) -> Self {
         config.defaultImage = value
         return self
-    }
-}
-
-// MARK: Helpers
-extension Steps {
-    /// Get state for step at an index
-    func stateFor(step: Step) -> Step.State {
-        if (step.index < state.currentIndex) {
-            return .completed
-        } else if step.index == state.currentIndex {
-            return .current
-        }
-        return .uncompleted
     }
 }

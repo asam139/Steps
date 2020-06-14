@@ -29,9 +29,6 @@ public struct Step {
     /// Index
     var index: Int = 0
 
-    /// State
-    var state: State = .uncompleted
-
     /// Initializes a new step.
     ///
     /// - Parameters:

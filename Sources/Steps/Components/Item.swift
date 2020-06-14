@@ -35,14 +35,18 @@ struct Item<Element>: View {
         return config.itemSpacing * 2
     }
 
+    private var stepState: Step.State {
+        return state.stateFor(step: step)
+    }
+
     /// Get image for the current step
     private var image: Image? {
-        return step.state != .completed ? step.image : config.defaultImage
+        return stepState != .completed ? step.image : config.defaultImage
     }
 
     /// Get foreground color for the current step
     private var foregroundColor: Color {
-        switch step.state {
+        switch stepState {
         case .uncompleted:
             return config.disabledColor
         default:
