@@ -11,7 +11,7 @@ import ViewInspector
 @testable import Steps
 
 extension Steps: Inspectable { }
-extension TupleView : Inspectable where T == (Item<String>, Separator<String>?) {}
+extension TupleView : Inspectable where T == (AnyView, AnyView?) {}
 
 final class StepsTests: XCTestCase {
     let config = Config()
@@ -26,12 +26,8 @@ final class StepsTests: XCTestCase {
         })
         let exp = container.inspection.inspect { view in
             let count = try view.actualView().state.data.count
-            for i in 0...count+1 {
-                if (i < count) {
-                    XCTAssertNoThrow(try view.hStack().forEach(0).view(TupleView<(Item<String>, Separator<String>?)>.self, i))
-                } else {
-                    XCTAssertThrowsError(try view.hStack().forEach(0).view(TupleView<(Item<String>, Separator<String>?)>.self, i))
-                }
+            for i in 0..<count {
+                XCTAssertNoThrow(try view.hStack().forEach(0).view(TupleView<(AnyView, AnyView?)>.self, i))
             }
         }
         ViewHosting.host(view: container.environmentObject(config))
@@ -48,6 +44,7 @@ final class StepsTests: XCTestCase {
         let defaultImage = Image("")
 
         let container = Steps(state: state, onCreateStep: { string in Step(title: string)})
+            .onSelectStepAtIndex({ (_) in })
             .itemSpacing(itemSpacing)
             .size(size)
             .lineThickness(lineThickness)
@@ -56,6 +53,7 @@ final class StepsTests: XCTestCase {
             .disabledColor(disabledColor)
             .defaultImage(defaultImage)
 
+        XCTAssertNotNil(container.onSelectStepAtIndex)
         XCTAssertEqual(container.config.itemSpacing, itemSpacing)
         XCTAssertEqual(container.config.size, size)
         XCTAssertEqual(container.config.lineThickness, lineThickness)
