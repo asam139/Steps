@@ -11,6 +11,8 @@ public struct Steps<Element>: View {
     /// Block to create each step
     let onCreateStep: (Element) -> Step
 
+    var onSelectStepAtIndex: ((Int) -> Void)?
+
     /// The style of the component
     let config = Config()
 
@@ -36,11 +38,14 @@ public struct Steps<Element>: View {
         step.index = index
 
         let first = Item<Element>(step: step)
-        var second: Separator<Element>?
-        if (index < state.data.endIndex - 1) {
-            second = Separator(step: step)
-        }
-        return ViewBuilder.buildBlock(first,second)
+            .if(onSelectStepAtIndex != nil) { item in
+                item.onTapGesture {
+                    self.onSelectStepAtIndex?(index)
+                }
+        }.eraseToAnyView()
+        let second: AnyView? = index < state.data.endIndex - 1 ?
+            Separator<Element>(step: step).eraseToAnyView() : nil
+        return ViewBuilder.buildBlock(first, second)
     }
 
     public var body: some View {
@@ -70,7 +75,14 @@ struct Steps_Previews: PreviewProvider {
 #endif
 
 // MARK: Builders
-extension Steps {
+extension Steps: Mutable {
+    /// Set action when a step is selected by the user
+    ///
+    /// - Parameter action: new action to call when a step is selected
+    public func onSelectStepAtIndex(_ action: ((Int) -> Void)?) -> Self {
+        return mutating(keyPath: \.onSelectStepAtIndex, value: action)
+    }
+
     /// Adds space between each page
     ///
     /// - Parameter value: Spacing between elements

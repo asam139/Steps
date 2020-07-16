@@ -32,9 +32,14 @@ struct ContentView: View {
         return Step(title: item.title, image: item.image)
     }
 
+    func onSelectStepAtIndex(_ index: Int) {
+        stepsState.setStep(index)
+    }
+
     var body: some View {
         VStack(spacing: 12) {
-            Steps(state: stepsState, onCreateStep:onCreateStep)
+            Steps(state: stepsState, onCreateStep: onCreateStep)
+                .onSelectStepAtIndex(onSelectStepAtIndex)
                 .itemSpacing(10)
                 .font(.caption)
                 .padding()
