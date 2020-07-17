@@ -11,6 +11,8 @@ public struct Steps<Element>: View {
     /// Block to create each step
     let onCreateStep: (Element) -> Step
 
+    @available(iOS 13.0, OSX 10.15, watchOS 6.0, *)
+    @available(tvOS, unavailable)
     var onSelectStepAtIndex: ((Int) -> Void)?
 
     /// The style of the component
@@ -37,12 +39,18 @@ public struct Steps<Element>: View {
         var step = onCreateStep(element)
         step.index = index
 
-        let first = Item<Element>(step: step)
+        #if os(iOS) || os(watchOS) || os(macOS)
+            let first = Item<Element>(step: step)
             .if(onSelectStepAtIndex != nil) { item in
                 item.onTapGesture {
                     self.onSelectStepAtIndex?(index)
-                }
-        }.eraseToAnyView()
+                }.eraseToAnyView()
+            }
+            .eraseToAnyView()
+        #elseif os(tvOS)
+            let first = Item<Element>(step: step).eraseToAnyView()
+        #endif
+
         let second: AnyView? = index < state.data.endIndex - 1 ?
             Separator<Element>(step: step).eraseToAnyView() : nil
         return ViewBuilder.buildBlock(first, second)
@@ -79,6 +87,8 @@ extension Steps: Mutable {
     /// Set action when a step is selected by the user
     ///
     /// - Parameter action: new action to call when a step is selected
+    @available(iOS 13.0, OSX 10.15, watchOS 6.0, *)
+    @available(tvOS, unavailable)
     public func onSelectStepAtIndex(_ action: ((Int) -> Void)?) -> Self {
         return mutating(keyPath: \.onSelectStepAtIndex, value: action)
     }
