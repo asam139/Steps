@@ -43,8 +43,7 @@ final class StepsTests: XCTestCase {
         let disabledColor = Color.gray
         let defaultImage = Image("")
 
-        let container = Steps(state: state, onCreateStep: { string in Step(title: string)})
-            .onSelectStepAtIndex({ (_) in })
+        var container = Steps(state: state, onCreateStep: { string in Step(title: string)})
             .itemSpacing(itemSpacing)
             .size(size)
             .lineThickness(lineThickness)
@@ -52,6 +51,10 @@ final class StepsTests: XCTestCase {
             .secondaryColor(secondaryColor)
             .disabledColor(disabledColor)
             .defaultImage(defaultImage)
+
+        #if !os(tvOS)
+        container = container.onSelectStepAtIndex({ (_) in })
+        #endif
 
         XCTAssertNotNil(container.onSelectStepAtIndex)
         XCTAssertEqual(container.config.itemSpacing, itemSpacing)

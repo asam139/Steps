@@ -12,7 +12,6 @@ public struct Steps<Element>: View {
     let onCreateStep: (Element) -> Step
 
     @available(iOS 13.0, OSX 10.15, watchOS 6.0, *)
-    @available(tvOS, unavailable)
     var onSelectStepAtIndex: ((Int) -> Void)?
 
     /// The style of the component
@@ -40,15 +39,15 @@ public struct Steps<Element>: View {
         step.index = index
 
         #if os(iOS) || os(watchOS) || os(macOS)
-            let first = Item<Element>(step: step)
+        let first = Item<Element>(step: step)
             .if(onSelectStepAtIndex != nil) { item in
                 item.onTapGesture {
                     self.onSelectStepAtIndex?(index)
                 }.eraseToAnyView()
-            }
-            .eraseToAnyView()
+        }
+        .eraseToAnyView()
         #elseif os(tvOS)
-            let first = Item<Element>(step: step).eraseToAnyView()
+        let first = Item<Element>(step: step).eraseToAnyView()
         #endif
 
         let second: AnyView? = index < state.data.endIndex - 1 ?
