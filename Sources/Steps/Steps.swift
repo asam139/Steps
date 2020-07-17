@@ -11,8 +11,18 @@ public struct Steps<Element>: View {
     /// Block to create each step
     let onCreateStep: (Element) -> Step
 
+    /// Action when a step is selected by the user
+    private var _onSelectStepAtIndex: ((Int) -> Void)?
+    /// Action when a step is selected by the user
     @available(iOS 13.0, OSX 10.15, watchOS 6.0, *)
-    var onSelectStepAtIndex: ((Int) -> Void)?
+    var onSelectStepAtIndex: ((Int) -> Void)? {
+        get {
+            return _onSelectStepAtIndex
+        }
+        set {
+            _onSelectStepAtIndex = newValue
+        }
+    }
 
     /// The style of the component
     let config = Config()
