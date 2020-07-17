@@ -54,9 +54,9 @@ final class StepsTests: XCTestCase {
 
         #if !os(tvOS)
         container = container.onSelectStepAtIndex({ (_) in })
+        XCTAssertNotNil(container.onSelectStepAtIndex)
         #endif
 
-        XCTAssertNotNil(container.onSelectStepAtIndex)
         XCTAssertEqual(container.config.itemSpacing, itemSpacing)
         XCTAssertEqual(container.config.size, size)
         XCTAssertEqual(container.config.lineThickness, lineThickness)
