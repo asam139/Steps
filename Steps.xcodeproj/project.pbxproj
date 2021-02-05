@@ -209,15 +209,15 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/93sauu/repositories/Steps/.build/checkouts/ViewInspector/Package.swift";
+         path = "/Users/saumor/repositories/personal/Steps/.build/checkouts/ViewInspector/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_132" = {
          isa = "PBXGroup";
          children = (
-            "SwifterSwiftUI::SwifterSwiftUI::Product",
             "Steps::StepsTests::Product",
             "Steps::Steps::Product",
+            "SwifterSwiftUI::SwifterSwiftUI::Product",
             "ViewInspector::ViewInspector::Product"
          );
          name = "Products";
@@ -491,10 +491,8 @@
                "5",
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk",
                "-package-description-version",
                "5.1.0"
             );
@@ -511,10 +509,8 @@
                "5",
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk",
                "-package-description-version",
                "5.1.0"
             );
@@ -584,7 +580,7 @@
                "$(inherited)"
             );
             INFOPLIST_FILE = "Steps.xcodeproj/StepsTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "13.0";
+            IPHONEOS_DEPLOYMENT_TARGET = "14.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
                "@loader_path/../Frameworks",
@@ -623,7 +619,7 @@
                "$(inherited)"
             );
             INFOPLIST_FILE = "Steps.xcodeproj/StepsTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "13.0";
+            IPHONEOS_DEPLOYMENT_TARGET = "14.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
                "@loader_path/../Frameworks",
@@ -968,10 +964,8 @@
                "5",
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk",
                "-package-description-version",
                "5.1.0"
             );
@@ -988,10 +982,8 @@
                "5",
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk",
                "-package-description-version",
                "5.1.0"
             );
@@ -1499,10 +1491,8 @@
                "5",
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk",
                "-package-description-version",
                "5.1.0"
             );
@@ -1566,10 +1556,8 @@
                "5",
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk",
                "-package-description-version",
                "5.1.0"
             );
@@ -1880,7 +1868,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/93sauu/repositories/Steps/.build/checkouts/SwifterSwiftUI/Package.swift";
+         path = "/Users/saumor/repositories/personal/Steps/.build/checkouts/SwifterSwiftUI/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_64" = {

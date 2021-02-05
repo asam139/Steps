@@ -83,12 +83,12 @@ struct Separator<Element>: View {
                 onCompletion: onCompletionEffect
             )
         )
-            .animation(config.animation)
-            .onReceive(state.$currentIndex, perform: { (nextIndex) in
-                self.updateScale(nextIndex: nextIndex)
-                self.previousIndex = nextIndex
-            })
-            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+        .animation(config.animation)
+        .onReceive(state.$currentIndex, perform: { (nextIndex) in
+            self.updateScale(nextIndex: nextIndex)
+            self.previousIndex = nextIndex
+        })
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 

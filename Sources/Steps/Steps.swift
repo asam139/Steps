@@ -44,8 +44,8 @@ public struct Steps<Element>: View {
                 item.onTapGesture {
                     self.onSelectStepAtIndex?(index)
                 }.eraseToAnyView()
-        }
-        .eraseToAnyView()
+            }
+            .eraseToAnyView()
         #elseif os(tvOS)
         let first = Item<Element>(step: step).eraseToAnyView()
         #endif

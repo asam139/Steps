@@ -43,8 +43,8 @@ final class ItemTests: XCTestCase {
             self.state.nextStep() // 3
         }
         ViewHosting.host(view: container
-            .environmentObject(state)
-            .environmentObject(config)
+                            .environmentObject(state)
+                            .environmentObject(config)
         )
         wait(for: [exp, exp2, exp3, exp4], timeout: 5)
     }

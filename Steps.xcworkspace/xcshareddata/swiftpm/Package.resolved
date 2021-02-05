@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwifterSwiftUI",
+        "repositoryURL": "https://github.com/asam139/SwifterSwiftUI.git",
+        "state": {
+          "branch": null,
+          "revision": "e69419dd7cdf3bb7df315978530d621d69c98b88",
+          "version": "0.5.1"
+        }
+      },
+      {
+        "package": "ViewInspector",
+        "repositoryURL": "https://github.com/nalexn/ViewInspector",
+        "state": {
+          "branch": null,
+          "revision": "3e7d80d5145a69a3b7e43aa102e8e75f58760368",
+          "version": "0.6.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

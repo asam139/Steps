@@ -38,8 +38,8 @@ final class SeparatorTests: XCTestCase {
             self.state.previousStep() // 0
         }
         ViewHosting.host(view: container
-            .environmentObject(state)
-            .environmentObject(config)
+                            .environmentObject(state)
+                            .environmentObject(config)
         )
         wait(for: [exp, exp2, exp3], timeout: 5)
     }

@@ -63,7 +63,7 @@ struct Item<Element>: View {
         }
 
         if ((previousIndex == state.data.endIndex && diff > 0) ||
-            (nextIndex == state.data.endIndex && diff < 0)) {
+                (nextIndex == state.data.endIndex && diff < 0)) {
             offset = 0
         } else if (previousIndex == step.index) {
             offset = CGFloat(diff) * maxOffset
@@ -87,16 +87,16 @@ struct Item<Element>: View {
             }, else: {
                 Text("\(step.index + 1)").font(.system(size: config.size))
             })
-                .frame(width: config.size, height: config.size)
-                .padding(config.figurePadding)
-                .if(step.index == state.currentIndex, then: {
-                    $0.background(config.primaryColor).foregroundColor(config.secondaryColor)
-                }, else: {
-                    $0.overlay(
-                        Circle().stroke(lineWidth: config.lineThickness)
-                    )
-                })
-                .cornerRadius(config.size)
+            .frame(width: config.size, height: config.size)
+            .padding(config.figurePadding)
+            .if(step.index == state.currentIndex, then: {
+                $0.background(config.primaryColor).foregroundColor(config.secondaryColor)
+            }, else: {
+                $0.overlay(
+                    Circle().stroke(lineWidth: config.lineThickness)
+                )
+            })
+            .cornerRadius(config.size)
         }
         .foregroundColor(foregroundColor)
         .modifier(
@@ -106,12 +106,12 @@ struct Item<Element>: View {
                 onCompletion: onCompletionEffect
             )
         )
-            .animation(config.animation)
-            .onReceive(state.$currentIndex, perform: { (nextIndex) in
-                self.updateOffset(nextIndex: nextIndex)
-                self.previousIndex = nextIndex
-            })
-            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+        .animation(config.animation)
+        .onReceive(state.$currentIndex, perform: { (nextIndex) in
+            self.updateOffset(nextIndex: nextIndex)
+            self.previousIndex = nextIndex
+        })
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 
