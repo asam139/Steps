@@ -15,7 +15,7 @@ public struct Steps<Element>: View {
     var onSelectStepAtIndex: ((Int) -> Void)?
 
     /// The style of the component
-    let config = Config()
+    let config: Config
 
     /// Helper to inspect
     let inspection = Inspection<Self>()
@@ -24,8 +24,9 @@ public struct Steps<Element>: View {
     ///
     /// - Parameter state: State to manage component
     /// - Parameter onCreateStep: Block to create each step
-    public init(state: StepsState<Element>, onCreateStep: @escaping (Element) -> Step) {
+    public init(state: StepsState<Element>, config: Config = Config(), onCreateStep: @escaping (Element) -> Step) {
         self.state = state
+        self.config = config
         self.onCreateStep = onCreateStep
     }
 
