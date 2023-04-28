@@ -10,8 +10,6 @@ import SwiftUI
 import ViewInspector
 @testable import Steps
 
-extension Item: Inspectable { }
-
 final class ItemTests: XCTestCase {
     let config = Config()
     let data = ["First", "Second"]

@@ -7,48 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97930A7D29FBDC6C0098E0A8 /* Steps in Frameworks */ = {isa = PBXBuildFile; productRef = 97930A7C29FBDC6C0098E0A8 /* Steps */; };
 		9C3CACED2440EFCB0088C114 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CACEC2440EFCB0088C114 /* ContentView.swift */; };
-		9C70629924422A000061E8D8 /* Steps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C706294244229E50061E8D8 /* Steps.framework */; };
-		9C70629A24422A000061E8D8 /* Steps.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C706294244229E50061E8D8 /* Steps.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9C7F43E72444EFFC005DC0C8 /* SwifterSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C706298244229E50061E8D8 /* SwifterSwiftUI.framework */; };
-		9C7F43E82444EFFC005DC0C8 /* SwifterSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C706298244229E50061E8D8 /* SwifterSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9A12776235699C600D136A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A12775235699C600D136A5 /* AppDelegate.swift */; };
 		D9A12778235699C600D136A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A12777235699C600D136A5 /* SceneDelegate.swift */; };
 		D9A1277D235699C600D136A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A1277B235699C600D136A5 /* Main.storyboard */; };
 		D9A1277F235699C700D136A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9A1277E235699C700D136A5 /* Assets.xcassets */; };
 		D9A12782235699C700D136A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A12780235699C700D136A5 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		9C706293244229E50061E8D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9C70628A244229E50061E8D8 /* Steps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "Steps::Steps::Product";
-			remoteInfo = Steps;
-		};
-		9C706295244229E50061E8D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9C70628A244229E50061E8D8 /* Steps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "Steps::StepsTests::Product";
-			remoteInfo = StepsTests;
-		};
-		9C706297244229E50061E8D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9C70628A244229E50061E8D8 /* Steps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "SwifterSwiftUI::SwifterSwiftUI::Product";
-			remoteInfo = SwifterSwiftUI;
-		};
-		9C7F4472244F678B005DC0C8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9C70628A244229E50061E8D8 /* Steps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "ViewInspector::ViewInspector::Product";
-			remoteInfo = ViewInspector;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9C70629B24422A000061E8D8 /* Embed Frameworks */ = {
@@ -57,8 +23,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9C70629A24422A000061E8D8 /* Steps.framework in Embed Frameworks */,
-				9C7F43E82444EFFC005DC0C8 /* SwifterSwiftUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,8 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		97930A7B29FBDC3D0098E0A8 /* Steps */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Steps; path = ..; sourceTree = "<group>"; };
 		9C3CACEC2440EFCB0088C114 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9C70628A244229E50061E8D8 /* Steps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Steps.xcodeproj; path = ../Steps.xcodeproj; sourceTree = "<group>"; };
 		D9A12772235699C600D136A5 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A12775235699C600D136A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9A12777235699C600D136A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,29 +46,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C70629924422A000061E8D8 /* Steps.framework in Frameworks */,
-				9C7F43E72444EFFC005DC0C8 /* SwifterSwiftUI.framework in Frameworks */,
+				97930A7D29FBDC6C0098E0A8 /* Steps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9C70628B244229E50061E8D8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9C706294244229E50061E8D8 /* Steps.framework */,
-				9C706296244229E50061E8D8 /* StepsTests.xctest */,
-				9C706298244229E50061E8D8 /* SwifterSwiftUI.framework */,
-				9C7F4473244F678B005DC0C8 /* ViewInspector.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D9A12769235699C600D136A5 = {
 			isa = PBXGroup;
 			children = (
-				9C70628A244229E50061E8D8 /* Steps.xcodeproj */,
+				97930A7B29FBDC3D0098E0A8 /* Steps */,
 				D9A12774235699C600D136A5 /* Sources */,
 				D9A12773235699C600D136A5 /* Products */,
 				D9A127892356A25E00D136A5 /* Frameworks */,
@@ -159,6 +111,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
+				97930A7C29FBDC6C0098E0A8 /* Steps */,
 			);
 			productName = "iOS Example";
 			productReference = D9A12772235699C600D136A5 /* Example.app */;
@@ -190,49 +143,12 @@
 			mainGroup = D9A12769235699C600D136A5;
 			productRefGroup = D9A12773235699C600D136A5 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 9C70628B244229E50061E8D8 /* Products */;
-					ProjectRef = 9C70628A244229E50061E8D8 /* Steps.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D9A12771235699C600D136A5 /* Example */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		9C706294244229E50061E8D8 /* Steps.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Steps.framework;
-			remoteRef = 9C706293244229E50061E8D8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9C706296244229E50061E8D8 /* StepsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = file;
-			path = StepsTests.xctest;
-			remoteRef = 9C706295244229E50061E8D8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9C706298244229E50061E8D8 /* SwifterSwiftUI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwifterSwiftUI.framework;
-			remoteRef = 9C706297244229E50061E8D8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9C7F4473244F678B005DC0C8 /* ViewInspector.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ViewInspector.framework;
-			remoteRef = 9C7F4472244F678B005DC0C8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D9A12770235699C600D136A5 /* Resources */ = {
@@ -476,6 +392,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		97930A7C29FBDC6C0098E0A8 /* Steps */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Steps;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D9A1276A235699C600D136A5 /* Project object */;
 }

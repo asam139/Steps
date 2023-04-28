@@ -9,4 +9,4 @@ import Foundation
 import ViewInspector
 @testable import Steps
 
-extension Inspection: InspectionEmissary where V: Inspectable { }
+extension Inspection: InspectionEmissary { }

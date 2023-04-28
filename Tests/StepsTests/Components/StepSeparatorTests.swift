@@ -10,8 +10,6 @@ import SwiftUI
 import ViewInspector
 @testable import Steps
 
-extension Separator: Inspectable { }
-
 final class SeparatorTests: XCTestCase {
     let config = Config()
     let data = ["First", "Second"]

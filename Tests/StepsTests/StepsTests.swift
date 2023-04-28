@@ -10,9 +10,6 @@ import SwiftUI
 import ViewInspector
 @testable import Steps
 
-extension Steps: Inspectable { }
-extension TupleView: Inspectable where T == (AnyView, AnyView?) {}
-
 final class StepsTests: XCTestCase {
     let config = Config()
     let data = ["First", "Second"]
@@ -27,7 +24,7 @@ final class StepsTests: XCTestCase {
         let exp = container.inspection.inspect { view in
             let count = try view.actualView().state.data.count
             for i in 0..<count {
-                XCTAssertNoThrow(try view.hStack().forEach(0).view(TupleView<(AnyView, AnyView?)>.self, i))
+                XCTAssertNoThrow(try view.hStack().forEach(0).tupleView(i))
             }
         }
         ViewHosting.host(view: container.environmentObject(config))
