@@ -12,7 +12,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        xcode: ['/Applications/Xcode_11.3.app/Contents/Developer']
+        xcode: ['/Applications/Xcode_14.1.app/Contents/Developer']
     env:
       PROJECT: Steps.xcodeproj
       CONFIGURATION: Release
