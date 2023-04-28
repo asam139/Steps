@@ -14,7 +14,7 @@ jobs:
       matrix:
         xcode: ['/Applications/Xcode_14.1.app/Contents/Developer']
     env:
-      SCHEME: Steps
+      SCHEME: StepsTests
       CONFIGURATION: Release
       DERIVED_PATH: .build/derivedData
       DEVELOPER_DIR: ${{ matrix.xcode }}
