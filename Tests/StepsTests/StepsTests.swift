@@ -11,7 +11,7 @@ import ViewInspector
 @testable import Steps
 
 extension Steps: Inspectable { }
-extension TupleView : Inspectable where T == (AnyView, AnyView?) {}
+extension TupleView: Inspectable where T == (AnyView, AnyView?) {}
 
 final class StepsTests: XCTestCase {
     let config = Config()

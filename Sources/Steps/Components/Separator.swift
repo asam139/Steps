@@ -56,9 +56,9 @@ struct Separator<Element>: View {
             return
         }
 
-        if (previousIndex == step.index && diff > 0) {
+        if previousIndex == step.index && diff > 0 {
             scaleX = minScaleX
-        } else if (nextIndex == step.index && diff < 0) {
+        } else if nextIndex == step.index && diff < 0 {
             scaleX = minScaleX
         } else {
             scaleX = 1

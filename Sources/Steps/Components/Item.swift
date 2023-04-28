@@ -62,12 +62,14 @@ struct Item<Element>: View {
             return
         }
 
-        if ((previousIndex == state.data.endIndex && diff > 0) ||
-            (nextIndex == state.data.endIndex && diff < 0)) {
+        if
+            (previousIndex == state.data.endIndex && diff > 0) ||
+            (nextIndex == state.data.endIndex && diff < 0)
+        {
             offset = 0
-        } else if (previousIndex == step.index) {
+        } else if previousIndex == step.index {
             offset = CGFloat(diff) * maxOffset
-        } else if(nextIndex == step.index) {
+        } else if nextIndex == step.index {
             offset = -CGFloat(diff) * maxOffset
         } else {
             offset = 0

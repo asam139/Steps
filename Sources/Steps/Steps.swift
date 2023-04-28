@@ -57,7 +57,7 @@ public struct Steps<Element>: View {
 
     public var body: some View {
         HStack(alignment: .top, spacing: config.itemSpacing) {
-            ForEach(state.data.indices) { index in
+            ForEach(state.data.indices, id: \.self) { index in
                 self.renderIndex(index)
             }
         }

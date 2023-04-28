@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/asam139/SwifterSwiftUI.git",
         "state": {
           "branch": null,
-          "revision": "c78899054765f8901a32f5ce194e1a164a332b37",
-          "version": "0.5.0"
+          "revision": "e69419dd7cdf3bb7df315978530d621d69c98b88",
+          "version": "0.5.1"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/nalexn/ViewInspector",
         "state": {
           "branch": null,
-          "revision": "63b8b90a39febacce9afde79fc048cd2f2e17805",
-          "version": "0.3.12"
+          "revision": "4effbd9143ab797eb60d2f32d4265c844c980946",
+          "version": "0.9.5"
         }
       }
     ]
