@@ -49,6 +49,6 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         name: Steps
-        directory: $DESTINATION
+        directory: $DERIVED_PATH
         verbose: true
         fail_ci_if_error: true
