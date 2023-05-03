@@ -45,10 +45,6 @@ platform :ios do
       bump_type: type
     )
 
-    increment_version_number(
-      version_number: version
-    )
-
     git_add(
       path: [podspec, sources_path],
       shell_escape: false
