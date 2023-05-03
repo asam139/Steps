@@ -30,7 +30,7 @@ public class StepsState<Element>: ObservableObject {
     public init(data: [Element], initialStep: Int = 0) {
         self.data = data
 
-        if (initialStep >= data.startIndex && initialStep <= data.endIndex) {
+        if initialStep >= data.startIndex && initialStep <= data.endIndex {
             currentIndex = initialStep
         }
 
@@ -42,7 +42,7 @@ public class StepsState<Element>: ObservableObject {
 
     /// Change current step
     public func setStep(_ index: Int) {
-        if (index < data.startIndex || index > data.endIndex + 1) {
+        if index < data.startIndex || index > data.endIndex + 1 {
             return
         }
         currentIndex = index
@@ -50,7 +50,7 @@ public class StepsState<Element>: ObservableObject {
 
     /// Move to the next step
     public func nextStep() {
-        if (currentIndex > data.endIndex) {
+        if currentIndex > data.endIndex {
             return
         }
         currentIndex += 1
@@ -58,7 +58,7 @@ public class StepsState<Element>: ObservableObject {
 
     /// Move to the previous step
     public func previousStep() {
-        if (currentIndex == data.startIndex) {
+        if currentIndex == data.startIndex {
             return
         }
         currentIndex -= 1
@@ -69,7 +69,7 @@ public class StepsState<Element>: ObservableObject {
 extension StepsState {
     /// Get state for step at an index
     func stateFor(step: Step) -> Step.State {
-        if (step.index < currentIndex) {
+        if step.index < currentIndex {
             return .completed
         } else if step.index == currentIndex {
             return .current

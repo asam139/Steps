@@ -11,7 +11,7 @@ import SwifterSwiftUI
 
 /// Container for each subview of the bar
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-struct Container<Content> : View where Content : View {
+struct Container<Content>: View where Content: View {
     /// The style of the component
     @EnvironmentObject var config: Config
 

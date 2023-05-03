@@ -10,8 +10,6 @@ import SwiftUI
 import ViewInspector
 @testable import Steps
 
-extension Container: Inspectable { }
-
 final class ContainerTests: XCTestCase {
     let config = Config()
 
