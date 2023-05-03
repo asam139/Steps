@@ -33,18 +33,22 @@ jobs:
     - name: Test iOS
       run: |
         xcodebuild test -scheme $SCHEME -configuration $CONFIGURATION -destination "$DESTINATION" -derivedDataPath $DERIVED_PATH | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
-        bash <(curl -s https://codecov.io/bash) -cF ios -J 'Steps' -D $DERIVED_PATH
       env:
           DESTINATION: platform=iOS Simulator,name=iPhone 11
     - name: Test macOS
       run: |
         xcodebuild test -scheme $SCHEME -configuration $CONFIGURATION -destination "$DESTINATION" -derivedDataPath $DERIVED_PATH | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-macos.json" xcpretty -f `xcpretty-json-formatter`
-        bash <(curl -s https://codecov.io/bash) -cF macos -J 'Steps' -D $DERIVED_PATH
       env:
           DESTINATION: platform=OS X
     - name: Test TVOS
       run: |
         xcodebuild test -scheme $SCHEME -configuration $CONFIGURATION -destination "$DESTINATION" -derivedDataPath $DERIVED_PATH | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-tvos.json" xcpretty -f `xcpretty-json-formatter`
-        bash <(curl -s https://codecov.io/bash) -cF tvos -J 'Steps' -D $DERIVED_PATH
       env:
           DESTINATION: platform=tvOS Simulator,name=Apple TV 4K (at 1080p)
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        name: Steps
+        directory: "$DESTINATION"
+        verbose: true
+        fail_ci_if_error: true
