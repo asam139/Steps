@@ -5,7 +5,6 @@ platform :ios do
 
   desc 'Validate the project is ready for releasing'
   lane :lint do
-    sh("cd .. && mint run realm/SwiftLint@0.39.0 swiftlint autocorrect --format")
     pod_lib_lint(
       allow_warnings: true
     )
