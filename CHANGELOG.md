@@ -17,6 +17,10 @@ The changelog for **Steps**. Also see the [releases](https://github.com/asam139/
 ### Security
 
 ---
+## [v0.3.8](https://github.com/asam139/Steps/releases/tag/0.3.8)
+### Change
+- Allow consumer to inject config into Steps initializer  
+
 ## [v0.3.7](https://github.com/asam139/Steps/releases/tag/0.3.7)
 ### Added
 - Add action to know when a step is selected.
