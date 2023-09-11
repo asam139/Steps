@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/asam139/SwifterSwiftUI.git", .upToNextMajor(from: "0.5.1")),
+        .package(url: "https://github.com/asam139/SwifterSwiftUI.git", .upToNextMajor(from: "0.5.2")),
         .package(url: "https://github.com/nalexn/ViewInspector", .upToNextMajor(from: "0.9.5"))
     ],
     targets: [

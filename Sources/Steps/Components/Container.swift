@@ -40,10 +40,11 @@ struct Container<Content>: View where Content: View {
                 content
             }
             .frame(height: config.size + 2 * config.figurePadding)
-            ifLet(title, then: { Text($0) })
-                .fixedSize(horizontal: true, vertical: false)
-                .lineLimit(1)
-
+            if let title {
+                Text(title)
+                    .fixedSize(horizontal: true, vertical: false)
+                    .lineLimit(1)
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity)
         .onReceive(inspection.notice) { self.inspection.visit(self, $0) }

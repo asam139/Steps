@@ -84,11 +84,7 @@ struct Item<Element>: View {
 
     var body: some View {
         Container(title: step.title) {
-            ifLet(image, then: {
-                $0.resizable()
-            }, else: {
-                Text("\(step.index + 1)").font(.system(size: config.size))
-            })
+            element
                 .frame(width: config.size, height: config.size)
                 .padding(config.figurePadding)
                 .if(step.index == state.currentIndex, then: {
@@ -108,12 +104,22 @@ struct Item<Element>: View {
                 onCompletion: onCompletionEffect
             )
         )
-            .animation(config.animation)
-            .onReceive(state.$currentIndex, perform: { (nextIndex) in
-                self.updateOffset(nextIndex: nextIndex)
-                self.previousIndex = nextIndex
-            })
-            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+        .animation(config.animation)
+        .onReceive(state.$currentIndex, perform: { (nextIndex) in
+            self.updateOffset(nextIndex: nextIndex)
+            self.previousIndex = nextIndex
+        })
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+    }
+
+    @ViewBuilder
+    private var element: some View {
+        if let image {
+            image.resizable()
+        } else {
+            Text("\(step.index + 1)")
+                .font(.system(size: config.size))
+        }
     }
 }
 
